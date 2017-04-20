@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/cn.zhouzy.greatcate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/imageview_include_cate_details_albums"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_400dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_include_cate_details_name_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageview_include_cate_details_albums"
+        android:layout_marginBottom="@dimen/dimen_40dp"
+        android:layout_marginStart="@dimen/dimen_40dp"
+        android:textColor="@color/white_light"
+        android:textSize="@dimen/txtsize_50sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_include_cate_details_collect_cotanier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_marginTop="@dimen/dimen_360dp"
+        android:gravity="end"
+        android:orientation="vertical" >
+
+        <cn.zhouzy.greatcate.common.view.CircleImageView
+            android:id="@+id/btn_include_cate_details_collect"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:src="@mipmap/btn_collect_nor"
+            app:civ_fill_color="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageview_include_cate_details_albums"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_include_cate_details_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txtsize_26sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@color/gray_bg" />
+
+        <TextView
+            android:id="@+id/tv_include_cate_details_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_28sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@color/gray_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_30dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="食材:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_30sp" />
+
+            <TextView
+                android:id="@+id/tv_include_cate_details_burden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_30sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@color/gray_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_30dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="佐料:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_30sp" />
+
+            <TextView
+                android:id="@+id/tv_include_cate_details_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_30sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_margin="@dimen/dimen_20dp"
+            android:background="@color/gray_bg" />
+    </LinearLayout>
+
+</RelativeLayout>

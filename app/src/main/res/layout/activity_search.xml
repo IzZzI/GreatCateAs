@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_search_title_include_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_104dp"
+        android:background="@color/black" >
+
+        <Button
+            android:id="@+id/btn_search_back"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@drawable/btn_title_back_selector" />
+
+        <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+            android:id="@+id/et_search_input"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_toEndOf="@+id/btn_search_back"
+            android:layout_toStartOf="@+id/btn_search_query"
+            android:background="@mipmap/bg_search_input"
+            android:drawableRight="@mipmap/clear_32"
+            android:gravity="start|center"
+            android:hint="@string/search"
+            android:paddingTop="@dimen/dimen_10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txtsize_28sp" />
+
+        <Button
+            android:id="@+id/btn_search_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:background="@null"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txtsize_30sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_search_quick_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/tv_normal_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="@string/hot_search" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/gray_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_search_hot_1"
+                style="@style/tv_normal_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:background="@drawable/bg_graybg_gray_shape_selector"
+                android:padding="@dimen/dimen_15dp"
+                android:text="@string/hot_1" />
+
+            <TextView
+                android:id="@+id/tv_search_hot2"
+                style="@style/tv_normal_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:background="@drawable/bg_graybg_gray_shape_selector"
+                android:padding="@dimen/dimen_15dp"
+                android:text="@string/hot_2" />
+
+            <TextView
+                android:id="@+id/tv_search_hot_3"
+                style="@style/tv_normal_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:background="@drawable/bg_graybg_gray_shape_selector"
+                android:padding="@dimen/dimen_15dp"
+                android:text="@string/hot_3" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            android:background="@color/gray_bg" />
+
+        <TextView
+            style="@style/tv_normal_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="@string/recently_search" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/gray_bg" />
+
+        <ListView
+            android:id="@+id/lv_search_recent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/gray_bg"
+            android:dividerHeight="@dimen/dimen_1dp"
+            android:headerDividersEnabled="false"
+            android:listSelector="@drawable/bg_white_light_selector" >
+        </ListView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

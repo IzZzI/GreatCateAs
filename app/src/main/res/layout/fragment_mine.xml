@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/cn.zhouzy.greatcate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_e"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_500dp"
+        android:background="@color/blue_normal" >
+
+        <cn.zhouzy.greatcate.common.view.waveview.WaveView
+            android:id="@+id/waveview_mine_title_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:above_wave_color="@color/gray_e"
+            app:blow_wave_color="@color/blue_pressed"
+            app:progress="3"
+            app:wave_height="little"
+            app:wave_hz="normal"
+            app:wave_length="middle" >
+        </cn.zhouzy.greatcate.common.view.waveview.WaveView>
+
+        <LinearLayout
+            android:id="@+id/ll_mine_head_portrait_controller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical" >
+
+            <cn.zhouzy.greatcate.common.view.CircleImageView
+                android:id="@+id/civ_mine_head_portrait"
+                android:layout_width="@dimen/dimen_180dp"
+                android:layout_height="@dimen/dimen_180dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/head_portrait" />
+
+            <TextView
+                android:id="@+id/tv_mine_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="@string/hint_login_or_register"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txtsize_30sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_collect"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="@drawable/bg_white_light_selector" >
+
+        <ImageView
+            android:id="@+id/iv_mine_collect_start"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/icon_collect" />
+
+        <TextView
+            android:id="@+id/tv_mine_collect_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_toEndOf="@+id/iv_mine_collect_start"
+            android:text="@string/my_collect"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_34sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/arrow_right_black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:background="@drawable/bg_white_light_selector" >
+
+        <ImageView
+            android:id="@+id/iv_mine_info_start"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/icon_info" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_toEndOf="@+id/iv_mine_info_start"
+            android:text="@string/my_info"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_34sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/arrow_right_black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_contact"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginTop="@dimen/dimen_50dp"
+        android:background="@drawable/bg_white_light_selector" >
+
+        <ImageView
+            android:id="@+id/iv_mine_contact_start"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/icon_suggestion" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_toEndOf="@+id/iv_mine_contact_start"
+            android:text="@string/contact_us"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_34sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/arrow_right_black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_setting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:background="@drawable/bg_white_light_selector" >
+
+        <ImageView
+            android:id="@+id/iv_mine_setting_start"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/icon_setting" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_toEndOf="@+id/iv_mine_setting_start"
+            android:text="@string/setting"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_34sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/arrow_right_black" />
+    </RelativeLayout>
+
+</LinearLayout>

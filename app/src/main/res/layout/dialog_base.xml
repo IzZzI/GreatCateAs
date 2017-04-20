@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/cn.zhouzy.greatcate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="@dimen/dimen_600dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <LinearLayout
+            android:id="@+id/ll_dialog_base_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_300dp"
+            android:background="@mipmap/dlg_msg_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_dialog_base_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_96dp"
+                android:gravity="center"
+                android:text="@string/title"
+                android:textColor="@color/black_2c"
+                android:textSize="@dimen/txtsize_36sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="#d8d8d8" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+                    android:id="@+id/et_dialog_base_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@null"
+                    android:drawableRight="@mipmap/clear_32"
+                    android:minHeight="@dimen/dimen_110dp"
+                    android:textColor="@color/black_2c"
+                    android:textSize="@dimen/txtsize_30sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_dialog_base_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_96dp"
+            android:layout_below="@+id/ll_dialog_base_top" >
+
+            <View
+                android:id="@+id/view_dialog_base_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="#d8d8d8" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/view_dialog_base_line"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn_dialog_base_cancle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn_dlg_left"
+                    android:text="@string/back"
+                    android:textSize="@dimen/txtsize_28sp"
+                    android:visibility="visible" />
+
+                <View
+                    android:layout_width="@dimen/dimen_1dp"
+                    android:layout_height="match_parent"
+                    android:background="#d8d8d8" />
+
+                <Button
+                    android:id="@+id/btn_dialog_base_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn_dlg_right"
+                    android:text="@string/confirm"
+                    android:textSize="@dimen/txtsize_28sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

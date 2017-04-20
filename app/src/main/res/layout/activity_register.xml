@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/include_center_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dimen_50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_register_username"
+            android:layout_width="@dimen/dimen_160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:text="@string/username"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_36sp" />
+
+        <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+            android:id="@+id/et_register_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@null"
+            android:drawableRight="@mipmap/clear_32"
+            android:hint="@string/hint_username"
+            android:singleLine="true"
+            android:textSize="@dimen/txtsize_36sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_marginStart="@dimen/dimen_30dp"
+        android:background="@color/gray_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_register_password"
+            android:layout_width="@dimen/dimen_160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:text="@string/login_password"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_36sp" />
+
+        <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+            android:id="@+id/et_register_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@null"
+            android:drawableRight="@mipmap/clear_32"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textSize="@dimen/txtsize_36sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_marginStart="@dimen/dimen_30dp"
+        android:background="@color/gray_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_register_password_sure"
+            android:layout_width="@dimen/dimen_160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:text="@string/sure_password"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_36sp" />
+
+        <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+            android:id="@+id/et_register_password_sure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@null"
+            android:drawableRight="@mipmap/clear_32"
+            android:hint="@string/hint_password_sure"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textSize="@dimen/txtsize_36sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_marginStart="@dimen/dimen_30dp"
+        android:background="@color/gray_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_register_email"
+            android:layout_width="@dimen/dimen_160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:text="@string/email"
+            android:textColor="@color/gray_black"
+            android:textSize="@dimen/txtsize_36sp" />
+
+        <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+            android:id="@+id/et_register_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@null"
+            android:drawableRight="@mipmap/clear_32"
+            android:hint="@string/hint_xuantian"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textSize="@dimen/txtsize_36sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_marginStart="@dimen/dimen_30dp"
+        android:background="@color/gray_bg" />
+
+    <Button
+        android:id="@+id/btn_register_register"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:layout_marginStart="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_50dp"
+        android:background="@drawable/btn_blue_selector"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txtsize_38sp" />
+
+</LinearLayout>

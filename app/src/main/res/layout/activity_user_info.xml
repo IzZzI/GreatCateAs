@@ -1,0 +1,458 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:background="@color/white_bg"
+              android:orientation="vertical">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/include_left_title" />
+
+    <cn.zhouzy.greatcate.common.view.pullview.CommPullToRefreshView
+        android:id="@+id/refreshview_user_info_pulltorefreshview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/basic_info"
+                    android:textColor="@color/gray_70"
+                    android:textSize="@dimen/txtsize_28sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:background="@color/gray_8" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_account_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_account_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/account" />
+
+                        <TextView
+                            android:id="@+id/tv_user_info_account"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_account_text"
+                            android:gravity="end" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_headportrait_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/head_portrait" />
+
+                        <cn.zhouzy.greatcate.common.view.CircleImageView
+                            android:id="@+id/civ_user_info_head_portrait"
+                            android:layout_width="@dimen/dimen_60dp"
+                            android:layout_height="@dimen/dimen_60dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:src="@mipmap/head_portrait" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_nickname_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_nickname_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/nickname" />
+
+                        <TextView
+                            android:id="@+id/tv_user_info_nickname"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_nickname_text"
+                            android:gravity="end" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_profile_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_profile_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/profile" />
+
+                        <TextView
+                            android:id="@+id/tv_user_info_profile"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_profile_text"
+                            android:gravity="end"
+                            android:text="@string/profile_defualt" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/bind_account"
+                    android:textColor="@color/gray_70"
+                    android:textSize="@dimen/txtsize_28sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:background="@color/gray_8" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_email_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_email_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/text_email" />
+
+                        <TextView
+                            android:id="@+id/tv_user_info_email"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_email_text"
+                            android:gravity="end"
+                            android:text="@string/add" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_qq_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_qq_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/text_qq" />
+
+                        <TextView
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_qq_text"
+                            android:gravity="end"
+                            android:text="@string/bind" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_weibo_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_weibo_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/text_weibo" />
+
+                        <TextView
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_weibo_text"
+                            android:gravity="end"
+                            android:text="@string/bind" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+
+                <cn.zhouzy.greatcate.common.view.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/LightGrey" >
+
+                    <RelativeLayout
+                        android:id="@+id/rl_user_info_wechat_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:background="@drawable/bg_white_light_selector" >
+
+                        <TextView
+                            android:id="@+id/tv_user_info_wechat_text"
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dimen_30dp"
+                            android:text="@string/text_wechat" />
+
+                        <TextView
+                            style="@style/tv_normal_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_60dp"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:layout_toEndOf="@+id/tv_user_info_wechat_text"
+                            android:gravity="end"
+                            android:text="@string/bind" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_30dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dimen_20dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/arrow_right_black" />
+                    </RelativeLayout>
+                </cn.zhouzy.greatcate.common.view.RippleView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:background="@color/gray_bg" />
+            </LinearLayout>
+        </ScrollView>
+    </cn.zhouzy.greatcate.common.view.pullview.CommPullToRefreshView>
+
+</LinearLayout>

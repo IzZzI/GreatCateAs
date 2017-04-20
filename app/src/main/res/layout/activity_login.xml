@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/include_center_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/dimen_50dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_login_username"
+                android:layout_width="@dimen/dimen_140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:text="@string/username"
+                android:textColor="@color/gray_black"
+                android:textSize="@dimen/txtsize_36sp" />
+
+            <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+                android:id="@+id/et_login_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:background="@null"
+                android:drawableRight="@mipmap/clear_32"
+                android:hint="@string/hint_username"
+                android:singleLine="true"
+                android:textSize="@dimen/txtsize_36sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@color/gray_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_login_password"
+                android:layout_width="@dimen/dimen_140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:text="@string/password"
+                android:textColor="@color/gray_black"
+                android:textSize="@dimen/txtsize_36sp" />
+
+            <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+                android:id="@+id/et_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:background="@null"
+                android:drawableRight="@mipmap/clear_32"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:textSize="@dimen/txtsize_36sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@color/gray_bg" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30dp" >
+
+            <Button
+                android:id="@+id/btn_froget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:background="@null"
+                android:text="@string/forget_password"
+                android:textColor="@color/gray_8"
+                android:textSize="@dimen/txtsize_30sp" />
+
+            <Button
+                android:id="@+id/btn_login_register"
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:background="@null"
+                android:text="@string/register"
+                android:textColor="@color/gray_8"
+                android:textSize="@dimen/txtsize_30sp" />
+        </RelativeLayout>
+
+        <cn.zhouzy.greatcate.common.view.ActionProcessButton
+            android:id="@+id/btn_login_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txtsize_38sp"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textComplete="@string/login_success"
+            custom:pb_textError="@string/login_failed"
+            custom:pb_textProgress="@string/logining" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:layout_toStartOf="@+id/tv_login_third_party_text"
+                android:background="@color/gray_bg" />
+
+            <TextView
+                android:id="@+id/tv_login_third_party_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/third_party"
+                android:textColor="@color/gray_black"
+                android:textSize="@dimen/txtsize_34sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_toEndOf="@+id/tv_login_third_party_text"
+                android:background="@color/gray_bg" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ll_login_third_party_qq"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_100dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ssdk_oks_classic_qq" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_login_third_party_wechat"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_100dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ssdk_oks_classic_wechat" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_login_third_party_sinaweibo"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_100dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ssdk_oks_classic_sinaweibo" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
