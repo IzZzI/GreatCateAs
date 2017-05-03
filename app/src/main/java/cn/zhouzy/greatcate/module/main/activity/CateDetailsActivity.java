@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
@@ -77,7 +78,6 @@ public class CateDetailsActivity extends BaseActivity implements ICateDetailsVie
 			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 					| WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 			window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-					| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 					| View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
@@ -128,7 +128,7 @@ public class CateDetailsActivity extends BaseActivity implements ICateDetailsVie
 
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
-					int totalItemCount)
+								 int totalItemCount)
 			{
 				changeTitleStatus(); // 滑动改变标题栏透明度
 			}
@@ -166,16 +166,16 @@ public class CateDetailsActivity extends BaseActivity implements ICateDetailsVie
 	}
 
 	@OnClick(
-	{ R.id.btn_cate_details_back })
+			{R.id.btn_cate_details_back})
 	void OnClick(View v)
 	{
 		switch (v.getId())
 		{
-		case R.id.btn_cate_details_back:
-			finish();
-			break;
-		default:
-			break;
+			case R.id.btn_cate_details_back:
+				finish();
+				break;
+			default:
+				break;
 		}
 
 	}
@@ -221,7 +221,7 @@ public class CateDetailsActivity extends BaseActivity implements ICateDetailsVie
 				// 改变收藏按钮位置 图片高度减去标题栏加上按钮高度一半即滑动到按钮顶部
 				if ((mImageViewSrollY >= (mImageViewHight - mTitleHight - mCollectCircleImageView
 						.getHeight() / 2)) && mCollectCircleImageView
-								.getParent() == mHeaderCollectContainerLinearLayout)
+						.getParent() == mHeaderCollectContainerLinearLayout)
 				{
 
 					mHeaderCollectContainerLinearLayout.removeView(mCollectCircleImageView);
@@ -229,7 +229,7 @@ public class CateDetailsActivity extends BaseActivity implements ICateDetailsVie
 
 				} else if ((mImageViewSrollY <= (mImageViewHight - mTitleHight
 						- mCollectCircleImageView.getHeight() / 2)) && mCollectCircleImageView
-								.getParent() == mActivityCollectContainerLinaerLayout)
+						.getParent() == mActivityCollectContainerLinaerLayout)
 				{
 					mActivityCollectContainerLinaerLayout.removeView(mCollectCircleImageView);
 					mHeaderCollectContainerLinearLayout.addView(mCollectCircleImageView);

@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.zhouzy.greatcate.R;
@@ -120,9 +121,9 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 	private void initData()
 	{
 		mDisplayPresenter = new DisplayPresenter(this);
-//		DialogUtil.showLoadDialog(getActivity(), R.drawable.xsearch_loading,
-//		        getResources().getString(R.string.loading));
-//		mDisplayPresenter.getCateList(mCid, mPn + "", mRn + "");
+		DialogUtil.showLoadDialog(getActivity(), R.mipmap.xsearch_loading,
+				getResources().getString(R.string.loading));
+		mDisplayPresenter.getCateList(mCid, mPn + "", mRn + "");
 	}
 
 	private void initView()
@@ -135,7 +136,7 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 		mHeadView = LayoutInflater.from(getActivity()).inflate(R.layout.include_display_head_view, null, false);
 		// 取得头部分类GridView
 		mHeaderCategoryGridView = (ExpandGridViewToScrollView) mHeadView
-		        .findViewById(R.id.gv_include_display_head_view_category);
+				.findViewById(R.id.gv_include_display_head_view_category);
 		mCategoryGridViewAdapter = new CategoryGridViewAdapter(getActivity());
 		mHeaderCategoryGridView.setAdapter(mCategoryGridViewAdapter);
 		// 取得头部背景图片
@@ -193,7 +194,7 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 					}
 				}
 				DialogUtil.showLoadDialog(getActivity(), R.mipmap.xsearch_loading,
-		                getResources().getString(R.string.loading));
+						getResources().getString(R.string.loading));
 				mDisplayPresenter.getCateList(mCid, mPn + "", mRn + "");
 
 			}
@@ -234,18 +235,18 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 	}
 
 	@OnClick(
-	{ R.id.btn_display_search })
+			{R.id.btn_display_search})
 	void OnClick(View v)
 	{
 		switch (v.getId())
 		{
-		case R.id.btn_display_search:
-			Intent in = new Intent(getActivity(), SearchActivity.class);
-			startActivity(in);
-			break;
+			case R.id.btn_display_search:
+				Intent in = new Intent(getActivity(), SearchActivity.class);
+				startActivity(in);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 

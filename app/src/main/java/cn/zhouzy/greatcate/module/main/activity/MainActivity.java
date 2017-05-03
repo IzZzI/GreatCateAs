@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+
 import butterknife.Bind;
 import cn.zhouzy.greatcate.R;
 import cn.zhouzy.greatcate.base.BaseActivity;
@@ -52,7 +53,6 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 					| WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 			window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-					| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 					| View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
@@ -122,18 +122,18 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 	{
 		switch (checkedId)
 		{
-		case R.id.rb_main_cate:
-			mContentViewPager.setCurrentItem(FRAGMENT_CATE);
-			break;
-		case R.id.rb_main_mine:
-			mContentViewPager.setCurrentItem(FRAGMENT_MINE);
-			break;
-		case R.id.rb_main_humor:
-			mContentViewPager.setCurrentItem(FRAGMENT_HUMOR);
-			break;
+			case R.id.rb_main_cate:
+				mContentViewPager.setCurrentItem(FRAGMENT_CATE);
+				break;
+			case R.id.rb_main_mine:
+				mContentViewPager.setCurrentItem(FRAGMENT_MINE);
+				break;
+			case R.id.rb_main_humor:
+				mContentViewPager.setCurrentItem(FRAGMENT_HUMOR);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 

@@ -1,7 +1,5 @@
 package cn.zhouzy.greatcate.common.fragment;
 
- 
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,11 +12,15 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import cn.zhouzy.greatcate.common.fragment.CommDialogFragment;
 import cn.zhouzy.greatcate.common.utils.ViewUtil;
+
 /**
  * 描述：弹出加载框
  */
-public class LoadDialogFragment extends CommDialogFragment {
+public class LoadDialogFragment extends CommDialogFragment
+{
 
 	private int mTheme;
 	private int mStyle;
@@ -33,7 +35,8 @@ public class LoadDialogFragment extends CommDialogFragment {
 	 * Create a new instance of AbDialogFragment, providing "style" as an
 	 * argument.
 	 */
-	public static LoadDialogFragment newInstance(int style, int theme) {
+	public static LoadDialogFragment newInstance(int style, int theme)
+	{
 		LoadDialogFragment f = new LoadDialogFragment();
 		// Supply style input as an argument.
 		Bundle args = new Bundle();
@@ -45,7 +48,8 @@ public class LoadDialogFragment extends CommDialogFragment {
 	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		mStyle = getArguments().getInt("style");
 		mTheme = getArguments().getInt("theme");
@@ -54,14 +58,15 @@ public class LoadDialogFragment extends CommDialogFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							 Bundle savedInstanceState)
+	{
 
 		LinearLayout parent = new LinearLayout(this.getActivity());
 		parent.setGravity(Gravity.CENTER);
 		parent.setOrientation(LinearLayout.VERTICAL);
 		parent.setPadding(20, 20, 20, 20);
 		parent.setMinimumWidth(ViewUtil.scaleValue(this.getActivity(), 400));
-		
+
 		mImageView = new ImageView(this.getActivity());
 		mImageView.setImageResource(mIndeterminateDrawable);
 		mImageView.setScaleType(ScaleType.MATRIX);
@@ -76,17 +81,19 @@ public class LoadDialogFragment extends CommDialogFragment {
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		parent.addView(mTextView, new LinearLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		
-		mImageView.setOnClickListener(new OnClickListener() {
+
+		mImageView.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View v) {
-					// 执行刷新
-					load(v);
+			public void onClick(View v)
+			{
+				// 执行刷新
+				load(v);
 			}
 
 		});
-		
+
 		// 执行加载
 		load(mImageView);
 		mContentView = parent;
@@ -94,44 +101,54 @@ public class LoadDialogFragment extends CommDialogFragment {
 		return mContentView;
 	}
 
-	public View getContentView() {
+	public View getContentView()
+	{
 		return mContentView;
 	}
 
-	public int getTextSize() {
+	public int getTextSize()
+	{
 		return mTextSize;
 	}
 
-	public void setTextSize(int textSize) {
+	public void setTextSize(int textSize)
+	{
 		this.mTextSize = textSize;
 	}
 
-	public int getTextColor() {
+	public int getTextColor()
+	{
 		return mTextColor;
 	}
 
-	public void setTextColor(int textColor) {
+	public void setTextColor(int textColor)
+	{
 		this.mTextColor = textColor;
 	}
-	
+
 	@Override
-	public void setMessage(String message) {
+	public void setMessage(String message)
+	{
 		this.mMessage = message;
-		if(mTextView!=null){
+		if (mTextView != null)
+		{
 			mTextView.setText(mMessage);
 		}
 	}
 
-	public int getIndeterminateDrawable() {
+	public int getIndeterminateDrawable()
+	{
 		return mIndeterminateDrawable;
 	}
 
-	public void setIndeterminateDrawable(int indeterminateDrawable) {
+	public void setIndeterminateDrawable(int indeterminateDrawable)
+	{
 		this.mIndeterminateDrawable = indeterminateDrawable;
 	}
 
-	public void setBackgroundColor(int backgroundColor) {
+	public void setBackgroundColor(int backgroundColor)
+	{
 		mContentView.setBackgroundColor(backgroundColor);
 	}
-	
+
 }

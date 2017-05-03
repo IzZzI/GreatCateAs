@@ -1,96 +1,132 @@
 package cn.zhouzy.greatcate.module.collect.adapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.nostra13.universalimageloader.core.ImageLoader;
-
-import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuAdapter;
+
+import java.util.List;
+
 import cn.zhouzy.greatcate.R;
-import cn.zhouzy.greatcate.base.BaseViewHolder;
 import cn.zhouzy.greatcate.entity.CollectEntity;
 
-public class CollectListAdapter extends BaseAdapter
+/**
+ * Created by 正义 on 2017/4/19.
+ */
+
+public class CollectListAdapter extends SwipeMenuAdapter<CollectListAdapter.DefaultViewHolder>
 {
-	private Context mContext;
-	private List<CollectEntity> mCollectList;
 
-	public CollectListAdapter(Context mContext, List<CollectEntity> mCollectList)
+	private List<CollectEntity> mDataList;
+	private OnItemClickListener mOnItemClickListener;
+
+	public CollectListAdapter(List mDataList)
 	{
-		super();
-		if (mCollectList == null)
-		{
-			mCollectList = new ArrayList<>();
-		}
-		this.mContext = mContext;
-		this.mCollectList = mCollectList;
+		this.mDataList = mDataList;
+	}
+
+
+	@Override
+	public int getItemCount()
+	{
+		return mDataList == null ? 0 : mDataList.size();
 	}
 
 	@Override
-	public int getCount()
+	public View onCreateContentView(ViewGroup parent, int viewType)
 	{
-		return mCollectList == null ? 0 : mCollectList.size();
+		return LayoutInflater.from(parent.getContext()).inflate(R.layout.item_collect_list, parent, false);
+	}
+
+
+	@Override
+	public CollectListAdapter.DefaultViewHolder onCompatCreateViewHolder(View realContentView, int viewType)
+	{
+		DefaultViewHolder viewHolder = new DefaultViewHolder(realContentView);
+		viewHolder.mOnItemClickListener = mOnItemClickListener;
+		return viewHolder;
 	}
 
 	@Override
-	public Object getItem(int position)
+	public void onBindViewHolder(CollectListAdapter.DefaultViewHolder holder, int position)
 	{
-		return mCollectList.get(position);
-	}
-
-	@Override
-	public long getItemId(int position)
-	{
-		return position;
-	}
-
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent)
-	{
-		if (convertView == null)
-		{
-			convertView = LayoutInflater.from(mContext).inflate(R.layout.item_collect_list, parent,
-					false);
-		}
-		CollectEntity mCollectEntity = mCollectList.get(position);
+		CollectEntity mCollectEntity = mDataList.get(position);
 		if (mCollectEntity != null)
 		{
-			ImageView mAblumsImageView = BaseViewHolder.get(convertView,
-					R.id.iv_item_collect_list_albums);
-			TextView mTitleTextView = BaseViewHolder.get(convertView,
-					R.id.tv_item_collect_list_name);
-			TextView mIntroTextView = BaseViewHolder.get(convertView,
-					R.id.tv_item_collect_list_intro);
-			TextView mTimeTextView = BaseViewHolder.get(convertView,
-					R.id.tv_item_collect_list_time);
 			String mAblumsUrl = mCollectEntity.getAlbums();
 			String mTitle = mCollectEntity.getTitle();
 			String mIntro = mCollectEntity.getIntro();
 			String mTime = mCollectEntity.getCollectTime();
 			if (mAblumsUrl != null)
 			{
-				ImageLoader.getInstance().displayImage(mAblumsUrl, mAblumsImageView);
+				ImageLoader.getInstance().displayImage(mAblumsUrl, holder.mAblumsImageView);
 			}
 			if (mTitle != null)
 			{
-				mTitleTextView.setText(mTitle);
+				holder.mTitleTextView.setText(mTitle);
 			}
 			if (mIntro != null)
 			{
-				mIntroTextView.setText(mIntro);
+				holder.mIntroTextView.setText(mIntro);
 			}
 			if (mTime != null)
 			{
-				mTimeTextView.setText(mTime);
+				holder.mTimeTextView.setText(mTime);
 			}
+
 		}
-		return convertView;
+	}
+
+	public void setOnItemClickListener(OnItemClickListener onItemClickListener)
+	{
+		this.mOnItemClickListener = onItemClickListener;
+
+	}
+
+	static class DefaultViewHolder extends RecyclerView.ViewHolder
+	{
+
+		OnItemClickListener mOnItemClickListener;
+		TextView mTimeTextView;
+		ImageView mAblumsImageView;
+		TextView mTitleTextView;
+		TextView mIntroTextView;
+
+		public DefaultViewHolder(View itemView)
+		{
+			super(itemView);
+			RelativeLayout mContainer = (RelativeLayout) itemView.findViewById(R.id.rl_item_collect_list_container);
+			mTimeTextView = (TextView) itemView.findViewById(R.id.tv_item_collect_list_time);
+			mAblumsImageView = (ImageView) itemView.findViewById(R.id.iv_item_collect_list_albums);
+			mTitleTextView = (TextView) itemView.findViewById(R.id.tv_item_collect_list_name);
+			mIntroTextView = (TextView) itemView.findViewById(R.id.tv_item_collect_list_intro);
+			mContainer.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View v)
+				{
+					if (mOnItemClickListener != null)
+					{
+						mOnItemClickListener.onItemClick(getAdapterPosition());
+					}
+				}
+			});
+
+		}
+
+
+	}
+
+	public interface OnItemClickListener
+	{
+		void onItemClick(int position);
+
 	}
 
 }

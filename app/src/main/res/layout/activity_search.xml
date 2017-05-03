@@ -140,6 +140,7 @@
 
     <ListView
         android:id="@+id/lv_search_result"
+        android:listSelector="@drawable/bg_white_light_selector"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </ListView>

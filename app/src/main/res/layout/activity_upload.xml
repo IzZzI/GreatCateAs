@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_bg"
+              android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_title_include_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_104dp"
+        android:background="@color/black">
+
+        <Button
+            android:id="@+id/btn_upload_back"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:background="@drawable/btn_title_back_selector"/>
+
+        <TextView
+            android:id="@+id/tv_upload_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/text_humor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txtsize_38sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:text="@string/upload"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txtsize_38sp"
+            />
+    </RelativeLayout>
+
+
+    <cn.zhouzy.greatcate.common.view.AutoCleanEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableRight="@mipmap/clear_32"
+        android:gravity="start|top"
+        android:hint="@string/hint_message"
+        android:maxLength="150"
+        android:minHeight="@dimen/dimen_300dp"
+        android:padding="@dimen/dimen_20dp"
+        android:textColor="@color/black_2c"
+        android:textSize="@dimen/txtsize_36sp"
+        />
+
+
+    <com.yzs.imageshowpickerview.ImageShowPickerView
+        android:id="@+id/image_show_picker_view_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@color/white"
+        android:padding="@dimen/dimen_30dp"
+        app:is_show_anim="true"
+        app:max_num="9"
+        app:one_line_show_num="3"
+        ></com.yzs.imageshowpickerview.ImageShowPickerView>
+
+
+</LinearLayout>

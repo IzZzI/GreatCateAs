@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_bg" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_bg">
 
     <include
         android:id="@+id/in_collect_title"
+        layout="@layout/include_center_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/include_center_title" />
+        android:layout_height="wrap_content"/>
 
-    <cn.zhouzy.greatcate.common.view.pullview.CommPullToRefreshView
-        android:id="@+id/refreshview_collect_pulltorefreshview"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout_collect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/in_collect_title" >
+        android:layout_below="@+id/in_collect_title">
 
-        <ListView
+        <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
             android:id="@+id/lv_collect_list"
-            android:scrollbars="@null"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null"
-            android:listSelector="@drawable/bg_white_light_selector" />
-    </cn.zhouzy.greatcate.common.view.pullview.CommPullToRefreshView>
+            android:listSelector="@drawable/bg_white_light_selector"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

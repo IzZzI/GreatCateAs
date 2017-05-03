@@ -1,6 +1,5 @@
 package cn.zhouzy.greatcate.common.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -12,18 +11,13 @@ import android.view.View;
 import android.widget.EditText;
 
 public class AutoCleanEditText extends EditText
+
 {
 	private Drawable dRight;
 	private Rect rBounds;
 	private boolean isCanClean;
 	private InnerOnFocusChangeListener onFocusChangeListener;
 
-	@SuppressLint("NewApi")
-	public AutoCleanEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes)
-	{
-		super(context, attrs, defStyleAttr, defStyleRes);
-		InitEditText();
-	}
 
 	public AutoCleanEditText(Context context, AttributeSet attrs, int defStyleAttr)
 	{
@@ -90,7 +84,7 @@ public class AutoCleanEditText extends EditText
 
 	/**
 	 * setText()不显示清除按钮
-	 * 
+	 *
 	 * @param msg
 	 */
 	public void setMessage(CharSequence msg)

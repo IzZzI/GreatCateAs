@@ -1,13 +1,5 @@
 package cn.zhouzy.greatcate.common.utils;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
-import java.net.URLConnection;
-
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -31,6 +23,14 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
 /**
  * 描述：图片处理类.
  */
@@ -39,30 +39,35 @@ public class ImageUtil
 
 	private final static String TAG = "AbImageUtil";
 
-	/** 图片处理：裁剪. */
+	/**
+	 * 图片处理：裁剪.
+	 */
 	public static final int CUTIMG = 0;
 
-	/** 图片处理：缩放. */
+	/**
+	 * 图片处理：缩放.
+	 */
 	public static final int SCALEIMG = 1;
 
-	/** 图片处理：不处理. */
+	/**
+	 * 图片处理：不处理.
+	 */
 	public static final int ORIGINALIMG = 2;
 
-	/** 图片最大宽度. */
+	/**
+	 * 图片最大宽度.
+	 */
 	public static final int MAX_WIDTH = 4096 / 2;
 
-	/** 图片最大高度. */
+	/**
+	 * 图片最大高度.
+	 */
 	public static final int MAX_HEIGHT = 4096 / 2;
 
 	/**
 	 * 从互联网上获取原始大小图片.
-	 * 
-	 * @param url
-	 *            要下载文件的网络地址
-	 * @param desiredWidth
-	 *            新图片的宽
-	 * @param desiredHeight
-	 *            新图片的高
+	 *
+	 * @param url 要下载文件的网络地址
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap getBitmap(String url)
@@ -99,9 +104,8 @@ public class ImageUtil
 
 	/**
 	 * 描述：获取原图.
-	 * 
-	 * @param file
-	 *            File对象
+	 *
+	 * @param file File对象
 	 * @return Bitmap 图片
 	 */
 	public static Bitmap getBitmap(File file)
@@ -119,13 +123,10 @@ public class ImageUtil
 
 	/**
 	 * 从互联网上获取指定大小的图片.
-	 * 
-	 * @param url
-	 *            要下载文件的网络地址
-	 * @param desiredWidth
-	 *            新图片的宽
-	 * @param desiredHeight
-	 *            新图片的高
+	 *
+	 * @param url           要下载文件的网络地址
+	 * @param desiredWidth  新图片的宽
+	 * @param desiredHeight 新图片的高
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap getBitmap(String url, int desiredWidth, int desiredHeight)
@@ -167,6 +168,7 @@ public class ImageUtil
 
 	/**
 	 * 从流中获取指定大小的图片.
+	 *
 	 * @param inputStream
 	 * @param desiredWidth
 	 * @param desiredHeight
@@ -200,6 +202,7 @@ public class ImageUtil
 
 	/**
 	 * 从流中获取指定大小的图片.
+	 *
 	 * @param data
 	 * @param desiredWidth
 	 * @param desiredHeight
@@ -253,13 +256,10 @@ public class ImageUtil
 
 	/**
 	 * 描述：缩放图片.
-	 * 
-	 * @param file
-	 *            File对象
-	 * @param desiredWidth
-	 *            新图片的宽
-	 * @param desiredHeight
-	 *            新图片的高
+	 *
+	 * @param file          File对象
+	 * @param desiredWidth  新图片的宽
+	 * @param desiredHeight 新图片的高
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap getScaleBitmap(File file, int desiredWidth, int desiredHeight)
@@ -315,13 +315,10 @@ public class ImageUtil
 
 	/**
 	 * 描述：缩放图片.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param desiredWidth
-	 *            新图片的宽
-	 * @param desiredHeight
-	 *            新图片的高
+	 *
+	 * @param bitmap        the bitmap
+	 * @param desiredWidth  新图片的宽
+	 * @param desiredHeight 新图片的高
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap getScaleBitmap(Bitmap bitmap, int desiredWidth, int desiredHeight)
@@ -353,13 +350,10 @@ public class ImageUtil
 
 	/**
 	 * 描述：裁剪图片.
-	 * 
-	 * @param file
-	 *            File对象
-	 * @param desiredWidth
-	 *            新图片的宽
-	 * @param desiredHeight
-	 *            新图片的高
+	 *
+	 * @param file          File对象
+	 * @param desiredWidth  新图片的宽
+	 * @param desiredHeight 新图片的高
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap getCutBitmap(File file, int desiredWidth, int desiredHeight)
@@ -406,13 +400,10 @@ public class ImageUtil
 
 	/**
 	 * 描述：裁剪图片.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param desiredWidth
-	 *            新图片的宽
-	 * @param desiredHeight
-	 *            新图片的高
+	 *
+	 * @param bitmap        the bitmap
+	 * @param desiredWidth  新图片的宽
+	 * @param desiredHeight 新图片的高
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap getCutBitmap(Bitmap bitmap, int desiredWidth, int desiredHeight)
@@ -470,11 +461,9 @@ public class ImageUtil
 
 	/**
 	 * 描述：根据等比例缩放图片.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param scale
-	 *            比例
+	 *
+	 * @param bitmap the bitmap
+	 * @param scale  比例
 	 * @return Bitmap 新图片
 	 */
 	public static Bitmap scaleBitmap(Bitmap bitmap, float scale)
@@ -517,7 +506,7 @@ public class ImageUtil
 
 	/**
 	 * 描述：获取图片尺寸
-	 * 
+	 *
 	 * @param file File对象
 	 * @return Bitmap 新图片
 	 */
@@ -535,8 +524,8 @@ public class ImageUtil
 	}
 
 	/**
-	 * 
 	 * 获取缩小的比例.
+	 *
 	 * @param srcWidth
 	 * @param srcHeight
 	 * @param desiredWidth
@@ -617,15 +606,14 @@ public class ImageUtil
 
 	/**
 	 * Drawable转Bitmap.
-	 * 
-	 * @param drawable
-	 *            要转化的Drawable
+	 *
+	 * @param drawable 要转化的Drawable
 	 * @return Bitmap
 	 */
 	public static Bitmap drawableToBitmap(Drawable drawable)
 	{
 		Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
-		        drawable.getOpacity() != PixelFormat.OPAQUE ? Config.ARGB_8888 : Config.RGB_565);
+				drawable.getOpacity() != PixelFormat.OPAQUE ? Config.ARGB_8888 : Config.RGB_565);
 		Canvas canvas = new Canvas(bitmap);
 		drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
 		drawable.draw(canvas);
@@ -634,9 +622,8 @@ public class ImageUtil
 
 	/**
 	 * Bitmap对象转换Drawable对象.
-	 * 
-	 * @param bitmap
-	 *            要转化的Bitmap对象
+	 *
+	 * @param bitmap 要转化的Bitmap对象
 	 * @return Drawable 转化完成的Drawable对象
 	 */
 	public static Drawable bitmapToDrawable(Bitmap bitmap)
@@ -656,67 +643,13 @@ public class ImageUtil
 		return mBitmapDrawable;
 	}
 
-	/**
-	 * Bitmap对象转换TransitionDrawable对象.
-	 * 
-	 * @param bitmap
-	 *            要转化的Bitmap对象 imageView.setImageDrawable(td);
-	 *            td.startTransition(200);
-	 * @return Drawable 转化完成的Drawable对象
-	 */
-	public static TransitionDrawable bitmapToTransitionDrawable(Bitmap bitmap)
-	{
-		TransitionDrawable mBitmapDrawable = null;
-		try
-		{
-			if (bitmap == null)
-			{
-				return null;
-			}
-			mBitmapDrawable = new TransitionDrawable(new Drawable[]
-			{ new ColorDrawable(android.R.color.transparent), new BitmapDrawable(bitmap) });
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		return mBitmapDrawable;
-	}
-
-	/**
-	 * Drawable对象转换TransitionDrawable对象.
-	 * 
-	 * @param drawable
-	 *            要转化的Drawable对象 imageView.setImageDrawable(td);
-	 *            td.startTransition(200);
-	 * @return Drawable 转化完成的Drawable对象
-	 */
-	public static TransitionDrawable drawableToTransitionDrawable(Drawable drawable)
-	{
-		TransitionDrawable mBitmapDrawable = null;
-		try
-		{
-			if (drawable == null)
-			{
-				return null;
-			}
-			mBitmapDrawable = new TransitionDrawable(new Drawable[]
-			{ new ColorDrawable(android.R.color.transparent), drawable });
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		return mBitmapDrawable;
-	}
 
 	/**
 	 * 将Bitmap转换为byte[].
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param mCompressFormat
-	 *            图片格式 Bitmap.CompressFormat.JPEG,CompressFormat.PNG
-	 * @param needRecycle
-	 *            是否需要回收
+	 *
+	 * @param bitmap          the bitmap
+	 * @param mCompressFormat 图片格式 Bitmap.CompressFormat.JPEG,CompressFormat.PNG
+	 * @param needRecycle     是否需要回收
 	 * @return byte[] 图片的byte[]
 	 */
 	public static byte[] bitmap2Bytes(Bitmap bitmap, Bitmap.CompressFormat mCompressFormat, final boolean needRecycle)
@@ -753,11 +686,9 @@ public class ImageUtil
 
 	/**
 	 * 获取Bitmap大小.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param mCompressFormat
-	 *            图片格式 Bitmap.CompressFormat.JPEG,CompressFormat.PNG
+	 *
+	 * @param bitmap          the bitmap
+	 * @param mCompressFormat 图片格式 Bitmap.CompressFormat.JPEG,CompressFormat.PNG
 	 * @return 图片的大小
 	 */
 	public static int getByteCount(Bitmap bitmap, Bitmap.CompressFormat mCompressFormat)
@@ -792,9 +723,8 @@ public class ImageUtil
 
 	/**
 	 * 描述：将byte[]转换为Bitmap.
-	 * 
-	 * @param b
-	 *            图片格式的byte[]数组
+	 *
+	 * @param b 图片格式的byte[]数组
 	 * @return bitmap 得到的Bitmap
 	 */
 	public static Bitmap bytes2Bimap(byte[] b)
@@ -815,9 +745,8 @@ public class ImageUtil
 
 	/**
 	 * 将ImageView转换为Bitmap.
-	 * 
-	 * @param view
-	 *            要转换为bitmap的View
+	 *
+	 * @param view 要转换为bitmap的View
 	 * @return byte[] 图片的byte[]
 	 */
 	public static Bitmap imageView2Bitmap(ImageView view)
@@ -836,9 +765,8 @@ public class ImageUtil
 
 	/**
 	 * 将View转换为Drawable.需要最上层布局为Linearlayout
-	 * 
-	 * @param view
-	 *            要转换为Drawable的View
+	 *
+	 * @param view 要转换为Drawable的View
 	 * @return BitmapDrawable Drawable
 	 */
 	public static Drawable view2Drawable(View view)
@@ -860,9 +788,8 @@ public class ImageUtil
 
 	/**
 	 * 将View转换为Bitmap.需要最上层布局为Linearlayout
-	 * 
-	 * @param view
-	 *            要转换为bitmap的View
+	 *
+	 * @param view 要转换为bitmap的View
 	 * @return byte[] 图片的byte[]
 	 */
 	public static Bitmap view2Bitmap(View view)
@@ -874,7 +801,7 @@ public class ImageUtil
 			{
 				view.setDrawingCacheEnabled(true);
 				view.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
-				        MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+						MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
 				view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
 				view.buildDrawingCache();
 				bitmap = view.getDrawingCache();
@@ -888,11 +815,9 @@ public class ImageUtil
 
 	/**
 	 * 将View转换为byte[].
-	 * 
-	 * @param view
-	 *            要转换为byte[]的View
-	 * @param compressFormat
-	 *            the compress format
+	 *
+	 * @param view           要转换为byte[]的View
+	 * @param compressFormat the compress format
 	 * @return byte[] View图片的byte[]
 	 */
 	public static byte[] view2Bytes(View view, Bitmap.CompressFormat compressFormat)
@@ -911,11 +836,9 @@ public class ImageUtil
 
 	/**
 	 * 描述：旋转Bitmap为一定的角度.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param degrees
-	 *            the degrees
+	 *
+	 * @param bitmap  the bitmap
+	 * @param degrees the degrees
 	 * @return the bitmap
 	 */
 	public static Bitmap rotateBitmap(Bitmap bitmap, float degrees)
@@ -935,11 +858,9 @@ public class ImageUtil
 
 	/**
 	 * 描述：旋转Bitmap为一定的角度并四周暗化处理.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
-	 * @param degrees
-	 *            the degrees
+	 *
+	 * @param bitmap  the bitmap
+	 * @param degrees the degrees
 	 * @return the bitmap
 	 */
 	public static Bitmap rotateBitmapTranslate(Bitmap bitmap, float degrees)
@@ -973,9 +894,8 @@ public class ImageUtil
 
 	/**
 	 * 转换图片转换成圆形.
-	 * 
-	 * @param bitmap
-	 *            传入Bitmap对象
+	 *
+	 * @param bitmap 传入Bitmap对象
 	 * @return the bitmap
 	 */
 	public static Bitmap toRoundBitmap(Bitmap bitmap)
@@ -1033,9 +953,8 @@ public class ImageUtil
 
 	/**
 	 * 转换图片转换成圆角.
-	 * 
-	 * @param bitmap
-	 *            传入Bitmap对象
+	 *
+	 * @param bitmap 传入Bitmap对象
 	 * @return the bitmap
 	 */
 	public static Bitmap toRoundBitmap(Bitmap bitmap, int roundPx)
@@ -1090,9 +1009,8 @@ public class ImageUtil
 
 	/**
 	 * 转换图片转换成镜面效果的图片.
-	 * 
-	 * @param bitmap
-	 *            传入Bitmap对象
+	 *
+	 * @param bitmap 传入Bitmap对象
 	 * @return the bitmap
 	 */
 	public static Bitmap toReflectionBitmap(Bitmap bitmap)
@@ -1134,7 +1052,7 @@ public class ImageUtil
 			// reflection
 			Paint paint = new Paint();
 			LinearGradient shader = new LinearGradient(0, bitmap.getHeight(), 0,
-			        bitmapWithReflection.getHeight() + reflectionGap, 0x70ffffff, 0x00ffffff, TileMode.CLAMP);
+					bitmapWithReflection.getHeight() + reflectionGap, 0x70ffffff, 0x00ffffff, TileMode.CLAMP);
 			// Set the paint to use this shader (linear gradient)
 			paint.setShader(shader);
 			// Set the Transfer mode to be porter duff and destination in
@@ -1152,9 +1070,8 @@ public class ImageUtil
 
 	/**
 	 * 释放Bitmap对象.
-	 * 
-	 * @param bitmap
-	 *            要释放的Bitmap
+	 *
+	 * @param bitmap 要释放的Bitmap
 	 */
 	public static void releaseBitmap(Bitmap bitmap)
 	{
@@ -1175,9 +1092,8 @@ public class ImageUtil
 
 	/**
 	 * 释放Bitmap数组.
-	 * 
-	 * @param bitmaps
-	 *            要释放的Bitmap数组
+	 *
+	 * @param bitmaps 要释放的Bitmap数组
 	 */
 	public static void releaseBitmapArray(Bitmap[] bitmaps)
 	{
@@ -1200,9 +1116,8 @@ public class ImageUtil
 
 	/**
 	 * 描述：图像的特征值颜色分布 将颜色分4个区，0,1,2,3 区组合共64组，计算每个像素点属于哪个区.
-	 * 
-	 * @param bitmap
-	 *            the bitmap
+	 *
+	 * @param bitmap the bitmap
 	 * @return the color histogram
 	 */
 	public static int[] getColorHistogram(Bitmap bitmap)
@@ -1279,11 +1194,9 @@ public class ImageUtil
 	/**
 	 * 计算"汉明距离"（Hamming distance）。
 	 * 如果不相同的数据位不超过5，就说明两张图片很相似；如果大于10，就说明这是两张不同的图片。.
-	 * 
-	 * @param sourceHashCode
-	 *            源hashCode
-	 * @param hashCode
-	 *            与之比较的hashCode
+	 *
+	 * @param sourceHashCode 源hashCode
+	 * @param hashCode       与之比较的hashCode
 	 * @return the int
 	 */
 	public static int hammingDistance(String sourceHashCode, String hashCode)
@@ -1302,9 +1215,8 @@ public class ImageUtil
 
 	/**
 	 * 灰度值计算.
-	 * 
-	 * @param pixels
-	 *            像素
+	 *
+	 * @param pixels 像素
 	 * @return int 灰度值
 	 */
 	private static int rgbToGray(int pixels)
@@ -1318,6 +1230,7 @@ public class ImageUtil
 
 	/**
 	 * 找到最合适的SampleSize
+	 *
 	 * @param width
 	 * @param height
 	 * @param desiredWidth
@@ -1338,8 +1251,8 @@ public class ImageUtil
 	}
 
 	/**
-	 * 
 	 * 将yuv格式转换成灰度bitmap.
+	 *
 	 * @param yuvData
 	 * @param width
 	 * @param height
@@ -1369,7 +1282,7 @@ public class ImageUtil
 	/**
 	 * 将yuv格式转换成bitmap
 	 * ImageFormat.NV21 || format == ImageFormat.YUY2
-	 * @param yuv
+	 *
 	 * @param width
 	 * @param height
 	 * @return RGB565 format bitmap
@@ -1388,9 +1301,9 @@ public class ImageUtil
 	}
 
 	/**
-	 * 
 	 * TODO
 	 * ImageFormat.NV21 || format == ImageFormat.YUY2.
+	 *
 	 * @param data
 	 * @param width
 	 * @param height
@@ -1438,7 +1351,7 @@ public class ImageUtil
 					b = 262143;
 
 				pixels[outputOffset + j] = 0xff000000 | ((r << 6) & 0xff0000) | ((g >> 2) & 0xff00)
-				        | ((b >> 10) & 0xff);
+						| ((b >> 10) & 0xff);
 			}
 			yOffset += width;
 			if (((rect.top + i) & 1) == 1)
@@ -1453,8 +1366,9 @@ public class ImageUtil
 
 	/**
 	 * 保存yuv为文件.
-	 * @param data the data
-	 * @param width the width
+	 *
+	 * @param data   the data
+	 * @param width  the width
 	 * @param height the height
 	 * @return the string
 	 */
@@ -1479,9 +1393,8 @@ public class ImageUtil
 
 	/**
 	 * The main method.
-	 * 
-	 * @param args
-	 *            the arguments
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args)
 	{
