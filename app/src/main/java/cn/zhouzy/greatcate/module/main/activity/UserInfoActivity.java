@@ -19,6 +19,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
@@ -51,8 +52,6 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 	TextView mProfileTextView;
 	@Bind(R.id.civ_user_info_head_portrait)
 	CircleImageView mHeadPortraitCircleImageView;
-	@Bind(R.id.tv_user_info_email)
-	TextView mEmailTextView;
 	@Bind(R.id.refreshview_user_info_pulltorefreshview)
 	CommPullToRefreshView mCommPullToRefreshView;
 	private User mUser;
@@ -91,7 +90,6 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 			String mHeadPortrait = mUser.getIcon();
 			String mProfile = mUser.getProfile();
 			String mNickname = mUser.getNickName();
-			String mEmail = mUser.getEmail();
 			if (!StrUtil.strIsNullOrEmpty(mAccount))
 			{
 				mAccountTextView.setText(mAccount);
@@ -110,10 +108,6 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 			{
 				ImageLoader.getInstance().displayImage(mHeadPortrait, mHeadPortraitCircleImageView);
 			}
-			if (!StrUtil.strIsNullOrEmpty(mEmail))
-			{
-				mEmailTextView.setText(mEmail);
-			}
 
 		}
 	}
@@ -127,7 +121,6 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 			String mHeadPortrait = mUser.getIcon();
 			String mProfile = mUser.getProfile();
 			String mNickname = mUser.getNickName();
-			String mEmail = mUser.getEmail();
 			if (!StrUtil.strIsNullOrEmpty(mAccount))
 			{
 				mAccountTextView.setText(mAccount);
@@ -159,13 +152,7 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 			{
 				mHeadPortraitCircleImageView.setImageResource(R.mipmap.head_portrait);
 			}
-			if (!StrUtil.strIsNullOrEmpty(mEmail))
-			{
-				mEmailTextView.setText(mEmail);
-			} else
-			{
-				mEmailTextView.setText("");
-			}
+
 
 		}
 	}
@@ -178,63 +165,63 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 	}
 
 	@OnClick(
-	{ R.id.rl_user_info_account_container, R.id.rl_user_info_email_container, R.id.rl_user_info_headportrait_container,
-	        R.id.rl_user_info_nickname_container, R.id.rl_user_info_profile_container, R.id.rl_user_info_qq_container,
-	        R.id.rl_user_info_wechat_container, R.id.rl_user_info_weibo_container, R.id.btn_back })
+			{R.id.rl_user_info_account_container, R.id.rl_user_info_headportrait_container,
+					R.id.rl_user_info_nickname_container, R.id.rl_user_info_profile_container,
+					R.id.btn_back})
 	void OnClick(View v)
 	{
 		switch (v.getId())
 		{
-		case R.id.btn_back:
-			setResult(RESULT_OK);
-			finish();
-			break;
-		case R.id.rl_user_info_nickname_container:
-			modifyNickName();
-			break;
-		case R.id.rl_user_info_profile_container:
-			modifyProfile();
-			break;
-		case R.id.rl_user_info_headportrait_container:
-			modifyHeadProtrait();
-			break;
+			case R.id.btn_back:
+				setResult(RESULT_OK);
+				finish();
+				break;
+			case R.id.rl_user_info_nickname_container:
+				modifyNickName();
+				break;
+			case R.id.rl_user_info_profile_container:
+				modifyProfile();
+				break;
+			case R.id.rl_user_info_headportrait_container:
+				modifyHeadProtrait();
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
 	private void modifyHeadProtrait()
 	{
 		new AlertDialog.Builder(this).setItems(new String[]
-		{ getResources().getString(R.string.by_take_photo), getResources().getString(R.string.by_gallery) },
-		        new OnClickListener()
-		        {
+						{getResources().getString(R.string.by_take_photo), getResources().getString(R.string.by_gallery)},
+				new OnClickListener()
+				{
 
-			        @Override
-			        public void onClick(DialogInterface dialog, int which)
-			        {
-				        switch (which)
-				        {
-				        // 拍照
-				        case 0:
-					        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-					        ContentValues values = new ContentValues();
-					        mHeadProtraitUri = getContentResolver().insert(Media.EXTERNAL_CONTENT_URI, values);
-					        captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mHeadProtraitUri);
-					        startActivityForResult(captureIntent, Constant.REQUEST_CODE_CAPTURE);
-					        break;
-				        // 从图库中选取
-				        case 1:
-					        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-					        galleryIntent.setType("image/*");
-					        startActivityForResult(galleryIntent, Constant.REQUEST_CODE_GALLERY);
-					        break;
-				        default:
-					        break;
-				        }
-			        }
-		        }).show();
+					@Override
+					public void onClick(DialogInterface dialog, int which)
+					{
+						switch (which)
+						{
+							// 拍照
+							case 0:
+								Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+								ContentValues values = new ContentValues();
+								mHeadProtraitUri = getContentResolver().insert(Media.EXTERNAL_CONTENT_URI, values);
+								captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mHeadProtraitUri);
+								startActivityForResult(captureIntent, Constant.REQUEST_CODE_CAPTURE);
+								break;
+							// 从图库中选取
+							case 1:
+								Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+								galleryIntent.setType("image/*");
+								startActivityForResult(galleryIntent, Constant.REQUEST_CODE_GALLERY);
+								break;
+							default:
+								break;
+						}
+					}
+				}).show();
 	}
 
 	private void modifyProfile()
@@ -294,23 +281,23 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 		{
 			switch (requestCode)
 			{
-			case Constant.REQUEST_CODE_CAPTURE:
-				startPhotoZoom(mHeadProtraitUri);
-				break;
-			case Constant.REQUEST_CODE_GALLERY:
-				if (data != null)
-				{
-					startPhotoZoom(data.getData());
-				} else
-				{
-					ToastUtil.showToast(this, getResources().getString(R.string.operation_error));
-				}
-				break;
-			case Constant.REQUEST_CODE_CROP:
-				saveCropBitmapAndUpLoad(data);
-				break;
-			default:
-				break;
+				case Constant.REQUEST_CODE_CAPTURE:
+					startPhotoZoom(mHeadProtraitUri);
+					break;
+				case Constant.REQUEST_CODE_GALLERY:
+					if (data != null)
+					{
+						startPhotoZoom(data.getData());
+					} else
+					{
+						ToastUtil.showToast(this, getResources().getString(R.string.operation_error));
+					}
+					break;
+				case Constant.REQUEST_CODE_CROP:
+					saveCropBitmapAndUpLoad(data);
+					break;
+				default:
+					break;
 			}
 
 		}
@@ -327,7 +314,7 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 				if (FileUtil.IsExistSdCard())
 				{
 					String path = Environment.getExternalStorageDirectory() + File.separator + Constant.DIR_GREATCATE
-					        + File.separator + Constant.FILE_NAME_HEADPROTRAIT;
+							+ File.separator + Constant.FILE_NAME_HEADPROTRAIT;
 					if (FileUtil.writeBitmapToSD(path, bitmap))
 					{
 						DialogUtil.showLoadDialog(UserInfoActivity.this, R.mipmap.xsearch_loading, "修改中");
@@ -352,7 +339,7 @@ public class UserInfoActivity extends BaseActivity implements UserInfoContract.I
 
 	/**
 	 * 裁剪图片方法实现
-	 * 
+	 *
 	 * @param uri
 	 */
 	public void startPhotoZoom(Uri uri)

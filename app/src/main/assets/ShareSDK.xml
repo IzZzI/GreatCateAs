@@ -20,7 +20,7 @@
 
 	<!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
 	<SinaWeibo Id="1" SortId="1" AppKey="3013831046"
-		AppSecret="f862ddb0a464a4192d157d8e29f82a2f" RedirectUrl="http://www.sharesdk.cn"
+		AppSecret="f862ddb0a464a4192d157d8e29f82a2f" RedirectUrl="http://www.sina.com"
 		ShareByAppClient="true" Enable="true" />
 
 	<TencentWeibo Id="2" SortId="2" AppKey="801307650"

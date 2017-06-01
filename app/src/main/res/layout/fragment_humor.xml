@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <ListView
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              >
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh_humor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/lv_humor_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ListView>
+        android:layout_height="match_parent"
+        android:background="@color/gray_bg"
+        android:focusable="true"
+        >
+    </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <LinearLayout
+        android:id="@+id/ll_humor_title_controller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_2c"
+        android:orientation="vertical" >
 
-</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_104dp" >
+
+            <TextView
+                android:id="@+id/tv_humor_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/text_humor"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txtsize_38sp" />
+
+            <TextView
+                android:id="@+id/btn_humor_upload"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txtsize_30sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:text="@string/upload"
+                 />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

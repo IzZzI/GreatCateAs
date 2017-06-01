@@ -6,13 +6,20 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
-/**
- * Created by gdxw on 2017/3/8.
- */
 
+/**
+ * 展示界面API
+ */
 public interface DisplayApi
 {
-
+	/**
+	 * 获取菜谱列表
+	 * @param cid 菜谱ID
+	 * @param pn 页码
+	 * @param rn 每页数量
+	 * @param key
+	 * @return
+	 */
 	@GET("index")
 	Observable<Root> getCateList(@Query("cid") int cid, @Query("pn") String pn, @Query("rn") String rn,
 								 @Query("key") String key);

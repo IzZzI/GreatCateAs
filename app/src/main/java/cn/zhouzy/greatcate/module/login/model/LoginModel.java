@@ -49,51 +49,51 @@ public class LoginModel implements LoginContract.ILoginModel
 		{ // 判定是否完成授权
 			if (platform.isAuthValid())
 			{
-				PlatformDb platformDb = platform.getDb();
-				if (platformDb != null)
-				{
-					loginByUserId(platformDb, callback);
-				} // platform为null
-			} else
-			{
-				platform.SSOSetting(false);
-				platform.setPlatformActionListener(new PlatformActionListener()
-				{
-
-					@Override
-					public void onError(Platform arg0, int arg1, Throwable arg2)
-					{
-						callback.onError(arg2.getMessage());
-					}
-
-					@Override
-					public void onComplete(Platform arg0, int arg1, HashMap<String, Object> arg2)
-					{
-						if (arg0 != null)
-						{
-							PlatformDb platformDb = arg0.getDb();
-							if (platformDb != null)
-							{
-								loginByUserId(platformDb, callback); // 授权成功进行登录或注册
-							} // platform为null
-						}
-					}
-
-					@Override
-					public void onCancel(Platform arg0, int arg1)
-					{
-						callback.onCancle();
-					}
-				});
-				platform.authorize();
-				platform.showUser(null);
+//				PlatformDb platformDb = platform.getDb();
+//				if (platformDb != null)
+//				{
+//					loginByUserId(platformDb, callback);
+//				} // platform为null
+				platform.removeAccount(true);
 			}
+			platform.SSOSetting(false);
+			platform.setPlatformActionListener(new PlatformActionListener()
+			{
+
+				@Override
+				public void onError(Platform arg0, int arg1, Throwable arg2)
+				{
+					callback.onError(arg2.getMessage());
+				}
+
+				@Override
+				public void onComplete(Platform arg0, int arg1, HashMap<String, Object> arg2)
+				{
+					if (arg0 != null)
+					{
+						PlatformDb platformDb = arg0.getDb();
+						if (platformDb != null)
+						{
+							loginByUserId(platformDb, callback); // 授权成功进行登录或注册
+						} // platform为null
+					}
+				}
+
+				@Override
+				public void onCancel(Platform arg0, int arg1)
+				{
+					callback.onCancle();
+				}
+			});
+			platform.authorize();
+			platform.showUser(null);
+
 		}
 	}
 
 	/**
 	 * 以三方的userId作为用户名登录或注册
-	 * 
+	 *
 	 * @param platformDb
 	 * @param callback
 	 */
@@ -123,21 +123,21 @@ public class LoginModel implements LoginContract.ILoginModel
 							if (user != null)
 							{
 								BmobUser.loginByAccount(userId, "123456", new LogInListener<User>()
-			                    {
+								{
 
-				                    @Override
-				                    public void done(User arg0, BmobException arg1)
-				                    {
-					                    if (arg1 == null)
-					                    {
-						                    callback.onSuccessed();
-						                    ;
-					                    } else
-					                    {
-						                    callback.onError(arg1.getMessage());
-					                    }
-				                    }
-			                    });
+									@Override
+									public void done(User arg0, BmobException arg1)
+									{
+										if (arg1 == null)
+										{
+											callback.onSuccessed();
+											;
+										} else
+										{
+											callback.onError(arg1.getMessage());
+										}
+									}
+								});
 							}
 
 						} else // 未注册
@@ -148,17 +148,17 @@ public class LoginModel implements LoginContract.ILoginModel
 							user.setNickName(nickName);
 							user.setIcon(icon);
 							user.signUp(new SaveListener<User>()
-			                {
+							{
 
-				                @Override
-				                public void done(User arg0, BmobException arg1)
-				                {
-					                if (arg1 == null)
-					                {
-						                callback.onSuccessed();
-					                }
-				                }
-			                });
+								@Override
+								public void done(User arg0, BmobException arg1)
+								{
+									if (arg1 == null)
+									{
+										callback.onSuccessed();
+									}
+								}
+							});
 						}
 
 					} else

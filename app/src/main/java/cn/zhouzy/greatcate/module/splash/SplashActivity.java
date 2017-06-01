@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import cn.zhouzy.greatcate.R;
 import cn.zhouzy.greatcate.base.BaseActivity;
+import cn.zhouzy.greatcate.module.login.activity.LoginActivity;
 import cn.zhouzy.greatcate.module.main.activity.MainActivity;
 import cn.zhouzy.greatcate.module.main.activity.UpLoadActivity;
 
@@ -24,7 +25,7 @@ public class SplashActivity extends BaseActivity
 			@Override
 			public void run()
 			{
-				Intent in = new Intent(SplashActivity.this, UpLoadActivity.class);
+				Intent in = new Intent(SplashActivity.this, MainActivity.class);
 				startActivity(in);
 				overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 				finish();

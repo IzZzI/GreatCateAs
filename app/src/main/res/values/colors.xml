@@ -40,5 +40,12 @@
     <color name="splash_bg">#FDFDF1</color>
     <color name="rippelColor">#FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="percent_text_color_default">#009ACD</color>
+    <color name="percent_text_color">#3CB371</color>
+    <color name="percent_text_color_2">#A2CD5A</color>
+    <color name="progressbar_bg_color_default">#636363</color>
+    <color name="progress_color_default">#00C5CD</color>
+    <color name="progressbar_bg_color_1">#737373</color>
+    <color name="progress_color_1">#3CB371</color>
 
 </resources>

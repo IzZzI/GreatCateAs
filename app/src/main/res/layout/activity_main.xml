@@ -9,6 +9,7 @@
         android:id="@+id/viewpager_main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/rippleview_main_bottom"
         >
     </cn.zhouzy.greatcate.common.view.NoScrollViewPager>
 

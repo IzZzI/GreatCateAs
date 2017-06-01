@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
@@ -21,6 +22,7 @@ import cn.zhouzy.greatcate.common.view.CircleImageView;
 import cn.zhouzy.greatcate.entity.User;
 import cn.zhouzy.greatcate.module.collect.activity.CollectActivity;
 import cn.zhouzy.greatcate.module.login.activity.LoginActivity;
+import cn.zhouzy.greatcate.module.main.activity.UpLoadActivity;
 import cn.zhouzy.greatcate.module.main.activity.UserInfoActivity;
 import cn.zhouzy.greatcate.module.setting.activity.SettingActivity;
 
@@ -131,30 +133,32 @@ public class MineFragment extends BaseFragment
 	}
 
 	@OnClick(
-	{ R.id.rl_mine_collect, R.id.rl_mine_setting, R.id.rl_mine_contact, R.id.rl_mine_info,
-	        R.id.ll_mine_head_portrait_controller })
+			{R.id.rl_mine_collect, R.id.rl_mine_setting, R.id.rl_mine_contact, R.id.rl_mine_info,
+					R.id.ll_mine_head_portrait_controller})
 	void OnClick(View v)
 	{
 		switch (v.getId())
 		{
-		case R.id.rl_mine_collect:
-			toCollect();
-			break;
-		case R.id.rl_mine_setting:
-			toSetting();
-			break;
-		case R.id.rl_mine_info:
-			toUserInfo();
-			break;
-		case R.id.rl_mine_contact:
-			ToastUtil.showToast(getActivity(), getResources().getString(R.string.contact_us));
-			break;
-		case R.id.ll_mine_head_portrait_controller:
-			toUserInfo();
-			break;
+			case R.id.rl_mine_collect:
+				toCollect();
+				break;
+			case R.id.rl_mine_setting:
+				toSetting();
+				break;
+			case R.id.rl_mine_info:
+				toUserInfo();
+				break;
+			case R.id.rl_mine_contact:
+				ToastUtil.showToast(getActivity(), getResources().getString(R.string.contact_us));
+				Intent in = new Intent(getActivity(), UpLoadActivity.class);
+				startActivity(in);
+				break;
+			case R.id.ll_mine_head_portrait_controller:
+				toUserInfo();
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -205,7 +209,7 @@ public class MineFragment extends BaseFragment
 	{
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == Activity.RESULT_OK && (requestCode == Constant.REQUESTCODE_LOGIN
-		        || requestCode == Constant.REQUESTCODE_SETTING || requestCode == Constant.REQUESTCODE_USERINFO))
+				|| requestCode == Constant.REQUESTCODE_SETTING || requestCode == Constant.REQUESTCODE_USERINFO))
 		{
 			refresh();
 		}

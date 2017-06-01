@@ -8,7 +8,7 @@ public class Constant
 {
 
 	public static String BaseUrl = "http://apis.juhe.cn/cook/";
-	public static String KEY = "f35f21988fee38158bf07c9ea63fdc15";
+	public static String KEY = "a2220ebfebce5662a7d3168f674c9a5e";
 	public static String EXTRA_KEY_CATE = "cate";
 	public static String USER_INFO = "userinfo";
 	public static String SP_KEY_USERNAME = "username";
@@ -26,4 +26,5 @@ public class Constant
 	public static final int REQUEST_CODE_GALLERY = 5;
 	//裁剪
 	public static final int REQUEST_CODE_CROP = 6;
+	public static final int REQUEST_CODE_UPLOAD= 7;
 }
