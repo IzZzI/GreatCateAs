@@ -49,30 +49,6 @@
                 android:src="@mipmap/arrow_right_black" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rl_setting_acount_and_safe"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_100dp"
-            android:layout_marginTop="@dimen/dimen_1dp"
-            android:background="@drawable/bg_white_light_selector" >
-
-            <TextView
-                style="@style/tv_normal_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/dimen_30dp"
-                android:text="@string/account_and_safe" />
-
-            <ImageView
-                android:layout_width="@dimen/dimen_30dp"
-                android:layout_height="@dimen/dimen_30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dimen_20dp"
-                android:contentDescription="@null"
-                android:src="@mipmap/arrow_right_black" />
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_setting_clear_cache"
@@ -88,31 +64,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dimen_30dp"
                 android:text="@string/clear_cache" />
-
-            <ImageView
-                android:layout_width="@dimen/dimen_30dp"
-                android:layout_height="@dimen/dimen_30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dimen_20dp"
-                android:contentDescription="@null"
-                android:src="@mipmap/arrow_right_black" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_setting_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_100dp"
-            android:layout_marginTop="@dimen/dimen_1dp"
-            android:background="@drawable/bg_white_light_selector" >
-
-            <TextView
-                style="@style/tv_normal_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/dimen_30dp"
-                android:text="@string/feedback" />
 
             <ImageView
                 android:layout_width="@dimen/dimen_30dp"

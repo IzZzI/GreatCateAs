@@ -152,12 +152,19 @@ public class UpLoadActivity extends BaseActivity implements UploadContract.IUplo
 	{
 		if (mUser != null)
 		{
+			String mNickName = mUser.getNickName();
 			String mUsername = mUser.getUsername();
 			String mHeadPortrait = mUser.getIcon();
 			String mContent = mContentEditText.getText().toString().trim();
 			List<ImageBean> mImgList = mImageShowPickerView.getDataList();
 			mProgressLinearLayout.setVisibility(View.VISIBLE);
-			mUploadPresenter.upload(mUsername, mContent, mHeadPortrait, mImgList);
+			if (mNickName == null ||"".equals(mNickName))
+			{
+				mUploadPresenter.upload(mUsername, mContent, mHeadPortrait, mImgList);
+			}else{
+				mUploadPresenter.upload(mNickName, mContent, mHeadPortrait, mImgList);
+			}
+
 
 		}
 
@@ -173,6 +180,7 @@ public class UpLoadActivity extends BaseActivity implements UploadContract.IUplo
 		{
 			mProgressLinearLayout.setVisibility(View.GONE);
 		}
+		finish();
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 
 /**
- * Created by gdxw on 2017/3/8.
+ * Created by zhouzy on 2017/3/8.
  */
 
 public abstract class BaseFragment extends Fragment {

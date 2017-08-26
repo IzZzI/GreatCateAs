@@ -3,6 +3,7 @@ package cn.zhouzy.greatcate.module.main.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +35,8 @@ public class HumorFragment extends BaseFragment implements HumorContract.IHumorV
 
 	@Bind(R.id.lv_humor_list)
 	RecyclerView mHumorRecyclerView;
-	@Bind(R.id.ll_humor_title_controller)
-	LinearLayout mTitleLinearLayout;
+	@Bind(R.id.rl_humor_title_controller)
+	RelativeLayout mTitleLinearLayout;
 	@Bind(R.id.swiperefresh_humor)
 	SwipeRefreshLayout mSwipeRefreshLayout;
 	private boolean isCreateView;
@@ -77,7 +79,7 @@ public class HumorFragment extends BaseFragment implements HumorContract.IHumorV
 
 	private void initView()
 	{
-		mTitleLinearLayout.getBackground().setAlpha(255);
+
 		mHumorRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 		DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
 		dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.divider));
@@ -87,6 +89,8 @@ public class HumorFragment extends BaseFragment implements HumorContract.IHumorV
 		mHumorListAdapter = new HumorListAdapter(mDataList, getActivity());
 		mHumorRecyclerView.setAdapter(mHumorListAdapter);
 		mHumorPresenter = new HumorPresenter(this);
+		mTitleLinearLayout.setBackgroundResource(R.color.black_2c);
+		mTitleLinearLayout.getBackground().setAlpha(255);
 
 	}
 
@@ -109,6 +113,15 @@ public class HumorFragment extends BaseFragment implements HumorContract.IHumorV
 
 	}
 
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState)
+	{
+		super.onActivityCreated(savedInstanceState);
+		if (getUserVisibleHint()){
+			lazyLoad();
+		}
+	}
+
 	@OnClick({R.id.btn_humor_upload})
 	void OnClick(View v)
 	{
@@ -129,6 +142,8 @@ public class HumorFragment extends BaseFragment implements HumorContract.IHumorV
 	{
 		isLoadData = true;
 		mHumorPresenter.getAllHumorList(0, 10);
+		mTitleLinearLayout.setBackgroundResource(R.color.black_2c);
+		mTitleLinearLayout.getBackground().setAlpha(255);
 
 
 	}
@@ -138,6 +153,7 @@ public class HumorFragment extends BaseFragment implements HumorContract.IHumorV
 	{
 		if (postList != null)
 		{
+			mDataList.clear();
 			mDataList.addAll(postList);
 			mHumorListAdapter.notifyDataSetChanged();
 		}

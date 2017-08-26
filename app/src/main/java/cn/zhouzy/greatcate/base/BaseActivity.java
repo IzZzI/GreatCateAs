@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import butterknife.ButterKnife;
 
 /**
- * Created by gdxw on 2017/3/8.
+ * Created by zhouzy on 2017/3/8.
  */
 
 public class BaseActivity extends FragmentActivity

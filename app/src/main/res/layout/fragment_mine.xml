@@ -123,47 +123,12 @@
             android:src="@mipmap/arrow_right_black" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/rl_mine_contact"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_100dp"
-        android:layout_marginTop="@dimen/dimen_50dp"
-        android:background="@drawable/bg_white_light_selector" >
-
-        <ImageView
-            android:id="@+id/iv_mine_contact_start"
-            android:layout_width="@dimen/dimen_50dp"
-            android:layout_height="@dimen/dimen_50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/dimen_20dp"
-            android:contentDescription="@null"
-            android:src="@mipmap/icon_suggestion" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/dimen_20dp"
-            android:layout_toEndOf="@+id/iv_mine_contact_start"
-            android:text="@string/contact_us"
-            android:textColor="@color/gray_black"
-            android:textSize="@dimen/txtsize_34sp" />
-
-        <ImageView
-            android:layout_width="@dimen/dimen_30dp"
-            android:layout_height="@dimen/dimen_30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dimen_20dp"
-            android:contentDescription="@null"
-            android:src="@mipmap/arrow_right_black" />
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_mine_setting"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_100dp"
-        android:layout_marginTop="@dimen/dimen_2dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
         android:background="@drawable/bg_white_light_selector" >
 
         <ImageView

@@ -20,7 +20,7 @@ import cn.zhouzy.greatcate.entity.Post;
 public class UploadModel implements UploadContract.IUploadModel
 {
 	@Override
-	public void upload(final String userName, final String contentTxt,String headPortrait ,List<ImageBean> dataList, final CommonProgressCallback callback)
+	public void upload(final String userName, final String contentTxt, final String headPortrait , List<ImageBean> dataList, final CommonProgressCallback callback)
 	{
 		if (dataList != null && dataList.size() > 0)
 		{
@@ -39,6 +39,7 @@ public class UploadModel implements UploadContract.IUploadModel
 						Post mPost = new Post();
 						mPost.setImgUrls(urls);
 						mPost.setAuthor(userName);
+						mPost.setAuthorHeadPortrait(headPortrait);
 						mPost.setTime(DateUtil.getCurTimeString());
 						mPost.setContent(contentTxt);
 						mPost.save(new SaveListener<String>()
@@ -77,6 +78,7 @@ public class UploadModel implements UploadContract.IUploadModel
 		{
 			Post mPost = new Post();
 			mPost.setAuthor(userName);
+			mPost.setAuthorHeadPortrait(headPortrait);
 			mPost.setTime(DateUtil.getCurTimeString());
 			mPost.setContent(contentTxt);
 			mPost.save(new SaveListener<String>()

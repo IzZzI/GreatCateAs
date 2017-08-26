@@ -12,8 +12,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import cn.zhouzy.greatcate.R;
+import cn.zhouzy.greatcate.common.utils.SharedPreferencesUtil;
 import cn.zhouzy.greatcate.common.utils.StrUtil;
 import cn.zhouzy.greatcate.common.view.CircleImageView;
 import cn.zhouzy.greatcate.common.view.ExpandGridViewToScrollView;
@@ -28,7 +30,6 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 {
 	private List<Post> mDataList;
 	private Context mContext;
-	private  HumorContract.IHumorPresenter mHumorPresenter;
 
 
 	public HumorListAdapter(List<Post> mDataList, Context mContext)
@@ -40,10 +41,7 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 		this.mDataList = mDataList;
 		this.mContext = mContext;
 	}
-	public void setPresenter(HumorContract.IHumorPresenter mHumorPresenter)
-	{
-		this.mHumorPresenter = mHumorPresenter;
-	}
+
 
 
 	@Override
@@ -55,14 +53,14 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 	}
 
 	@Override
-	public void onBindViewHolder(HumorViewHolder holder, int position)
+	public void onBindViewHolder(final HumorViewHolder holder, final int position)
 	{
 		Post mPost = mDataList.get(position);
 		if (mPost != null)
 		{
 			String mTime = mPost.getTime();
 			String mAuthor = mPost.getAuthor();
-			String mContent = mPost.getContent();
+			final String mContent = mPost.getContent();
 			List<String> mImgUrl = mPost.getImgUrls();
 			String mHeadPortraitUrl = mPost.getAuthorHeadPortrait();
 			if (!StrUtil.strIsNullOrEmpty(mTime))
@@ -80,12 +78,39 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 			if (!StrUtil.strIsNullOrEmpty(mHeadPortraitUrl))
 			{
 				ImageLoader.getInstance().displayImage(mHeadPortraitUrl, holder.mHeadPortraitCircleImageView);
+			}else
+			{
+				holder.mHeadPortraitCircleImageView.setImageResource(R.mipmap.head_portrait);
 			}
+			holder.mLikeTextView.setText(new Random().nextInt(20) + "");
 			if (mImgUrl != null && mImgUrl.size() > 0)
 			{
 				HumorPicAdapter humorPicAdapter = new HumorPicAdapter(mImgUrl, mContext);
 				holder.mImageGridView.setAdapter(humorPicAdapter);
 			}
+			holder.mLikeImageView.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View v)
+				{
+					if (holder.isLike == false)
+					{
+						holder.isLike = true;
+						holder.mLikeImageView.setImageResource(R.drawable.like_pre);
+						SharedPreferencesUtil sharedPreferencesUtil = new SharedPreferencesUtil(mContext);
+						holder.mLikeTextView.setText(Integer.valueOf(holder.mLikeTextView.getText().toString()) + 1 + "");
+						sharedPreferencesUtil.putInt(position + "", Integer.valueOf(holder.mLikeTextView.getText().toString()));
+
+					}else
+					{
+						holder.isLike = false;
+						holder.mLikeImageView.setImageResource(R.drawable.like_nor);
+						SharedPreferencesUtil sharedPreferencesUtil = new SharedPreferencesUtil(mContext);
+						holder.mLikeTextView.setText(Integer.valueOf(holder.mLikeTextView.getText().toString()) -1 + "");
+						sharedPreferencesUtil.putInt(position + "", Integer.valueOf(holder.mLikeTextView.getText().toString()));
+					}
+				}
+			});
 
 		}
 
@@ -105,7 +130,8 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 		TextView mNameTextView;
 		ExpandGridViewToScrollView mImageGridView;
 		ImageView mLikeImageView;
-		ImageView mCommentImageView;
+		TextView mLikeTextView;
+		boolean isLike;
 
 		public HumorViewHolder(View itemView)
 		{
@@ -116,8 +142,7 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 			mTimeTextView = (TextView) itemView.findViewById(R.id.tv_item_humor_layout_time);
 			mImageGridView = (ExpandGridViewToScrollView) itemView.findViewById(R.id.gv_item_humor_pic);
 			mLikeImageView = (ImageView) itemView.findViewById(R.id.iv_item_humor_like);
-			mCommentImageView = (ImageView) itemView.findViewById(R.id.iv_item_humor_comment);
-
+			mLikeTextView = (TextView) itemView.findViewById(R.id.tv_item_humor_like_num);
 		}
 	}
 

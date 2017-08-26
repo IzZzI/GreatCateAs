@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.yanzhenjie.recyclerview.swipe.Closeable;
+import com.yanzhenjie.recyclerview.swipe.OnSwipeMenuItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
@@ -118,6 +120,16 @@ public class CollectActivity extends BaseActivity implements ICollectView
 				}
 			}
 		});
+		mCollectListListView.setSwipeMenuItemClickListener(new OnSwipeMenuItemClickListener()
+		{
+			@Override
+			public void onItemClick(Closeable closeable, int adapterPosition, int menuPosition, int direction)
+			{
+				mCollectList.remove(adapterPosition);
+				mCollectListAdapter.notifyItemRemoved(adapterPosition);
+			}
+		});
+
 	}
 
 	@Override

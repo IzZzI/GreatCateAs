@@ -119,8 +119,8 @@ public class AutoCleanEditText extends EditText
 		if ((dRight != null) && (event.getAction() == 1) && isCanClean)
 		{
 			this.rBounds = this.dRight.getBounds();
-			// int i = (int) event.getRawX();//距离屏幕的距离
-			int i = (int) event.getX();// 距离边框的距离
+			 int i = (int) event.getRawX();//距离屏幕的距离
+//			int i = (int) event.getX();// 距离边框的距离
 			if (i > getRight() - 3 * rBounds.width())
 			{
 				setText("");

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.sharesdk.sina.weibo.SinaWeibo;
@@ -80,34 +81,28 @@ public class LoginActivity extends BaseActivity implements LoginContract.ILoginV
 	}
 
 	@OnClick(
-	{ R.id.ll_login_third_party_qq, R.id.ll_login_third_party_wechat, R.id.ll_login_third_party_sinaweibo,
-	        R.id.btn_login_register, R.id.btn_login_login, R.id.btn_back })
+			{R.id.ll_login_third_party_qq,
+					R.id.btn_login_register, R.id.btn_login_login, R.id.btn_back})
 	void OnClick(View v)
 	{
 		switch (v.getId())
 		{
-		case R.id.ll_login_third_party_qq:
-			thirdPartyLogin(THIRD_PARTY_LOGIN_QQ);
-			break;
-		case R.id.ll_login_third_party_wechat:
-			thirdPartyLogin(THIRD_PARTY_LOGIN_WECHAT);
-			break;
-		case R.id.ll_login_third_party_sinaweibo:
-			thirdPartyLogin(THIRD_PARTY_LOGIN_SINAWEIBO);
-			break;
-		case R.id.btn_login_register:
-			register();
-			break;
-		case R.id.btn_login_login:
-			login();
-			break;
-		case R.id.btn_back:
-			finish();
-			overridePendingTransition(R.anim.anim_alpha, R.anim.anim_close);
-			break;
+			case R.id.ll_login_third_party_qq:
+				thirdPartyLogin(THIRD_PARTY_LOGIN_QQ);
+				break;
+			case R.id.btn_login_register:
+				register();
+				break;
+			case R.id.btn_login_login:
+				login();
+				break;
+			case R.id.btn_back:
+				finish();
+				overridePendingTransition(R.anim.anim_alpha, R.anim.anim_close);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -157,17 +152,17 @@ public class LoginActivity extends BaseActivity implements LoginContract.ILoginV
 		String name = "";
 		switch (thirdPartyLoginFlag)
 		{
-		case THIRD_PARTY_LOGIN_QQ:
-			name = QQ.NAME;
-			break;
-		case THIRD_PARTY_LOGIN_WECHAT:
-			name = Wechat.NAME;
-			break;
-		case THIRD_PARTY_LOGIN_SINAWEIBO:
-			name = SinaWeibo.NAME;
-			break;
-		default:
-			break;
+			case THIRD_PARTY_LOGIN_QQ:
+				name = QQ.NAME;
+				break;
+			case THIRD_PARTY_LOGIN_WECHAT:
+				name = Wechat.NAME;
+				break;
+			case THIRD_PARTY_LOGIN_SINAWEIBO:
+				name = SinaWeibo.NAME;
+				break;
+			default:
+				break;
 		}
 		DialogUtil.showLoadDialog(this, R.mipmap.xsearch_loading, getResources().getString(R.string.loading));
 		mLoginPresenter.thirdPartyLogin(name);

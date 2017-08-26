@@ -26,7 +26,7 @@ public class UserInfoModel implements UserInfoContract.IUserInfoModel
 			{
 				if (arg0 == null)
 				{
-					callback.onSuccess(null);
+					callback.onSuccess("修改成功");
 				} else
 				{
 					callback.onFail(arg0.getMessage());

@@ -73,8 +73,8 @@ public class SettingActivity extends BaseActivity
 
 	@OnClick(
 	{ R.id.btn_back, R.id.rl_setting_userinfo, R.id.rl_setting_about, R.id.rl_setting_clear_cache,
-			R.id.rl_setting_feedback, R.id.rl_setting_check_for_updates,
-			R.id.rl_setting_acount_and_safe, R.id.btn_setting_login_out })
+			R.id.rl_setting_check_for_updates,
+			 R.id.btn_setting_login_out })
 	void OnClick(View v)
 	{
 		switch (v.getId())
@@ -92,14 +92,8 @@ public class SettingActivity extends BaseActivity
 		case R.id.rl_setting_clear_cache:
 			clearCache();
 			break;
-		case R.id.rl_setting_feedback:
-			feedBack();
-			break;
 		case R.id.rl_setting_check_for_updates:
 			checkForUpdates();
-			break;
-		case R.id.rl_setting_acount_and_safe:
-			accountAndSafe();
 			break;
 		case R.id.btn_setting_login_out:
 			loginOut();
@@ -138,10 +132,6 @@ public class SettingActivity extends BaseActivity
 		}
 	}
 
-	private void accountAndSafe()
-	{
-
-	}
 
 	private void checkForUpdates()
 	{

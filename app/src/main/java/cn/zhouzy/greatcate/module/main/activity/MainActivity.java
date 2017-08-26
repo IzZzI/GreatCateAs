@@ -38,9 +38,9 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 	private long mExitTime;
 	private MainViewPagerAdapter mMainContentViewPagerAdapter;
 	private List<Fragment> mFragmentList;
-	private static final int FRAGMENT_CATE = 0;
-	private static final int FRAGMENT_HUMOR = 1;
-	private static final int FRAGMENT_MINE = 2;
+//	private static final int FRAGMENT_CATE = 0;
+	private static final int FRAGMENT_HUMOR = 0;
+	private static final int FRAGMENT_MINE = 1;
 
 	@SuppressLint("NewApi")
 	@Override
@@ -73,16 +73,16 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 	private void initView()
 	{
 		mFragmentList = new ArrayList<>();
-		mDisplayFragment = DisplayFragment.newInstance();
+//		mDisplayFragment = DisplayFragment.newInstance();
 		mHumorFragment = HumorFragment.newInstance();
 		mMineFragment = MineFragment.newInstance();
-		mFragmentList.add(mDisplayFragment);
+//		mFragmentList.add(mDisplayFragment);
 		mFragmentList.add(mHumorFragment);
 		mFragmentList.add(mMineFragment);
 		mMainContentViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(),
 				mFragmentList);
 		mContentViewPager.setAdapter(mMainContentViewPagerAdapter);
-		mContentViewPager.setOffscreenPageLimit(3);
+		mContentViewPager.setOffscreenPageLimit(2);
 
 	}
 
@@ -122,9 +122,9 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 	{
 		switch (checkedId)
 		{
-			case R.id.rb_main_cate:
-				mContentViewPager.setCurrentItem(FRAGMENT_CATE);
-				break;
+//			case R.id.rb_main_cate:
+//				mContentViewPager.setCurrentItem(FRAGMENT_CATE);
+//				break;
 			case R.id.rb_main_mine:
 				mContentViewPager.setCurrentItem(FRAGMENT_MINE);
 				break;

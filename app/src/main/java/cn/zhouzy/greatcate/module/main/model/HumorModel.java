@@ -20,7 +20,7 @@ public class HumorModel implements HumorContract.IHumorModel
 	{
 		BmobQuery<Post> mBmobQuery = new BmobQuery<>();
 		mBmobQuery.setLimit(50);
-		mBmobQuery.order("time");
+		mBmobQuery.order("-time");
 		mBmobQuery.findObjects(new FindListener<Post>()
 		{
 			@Override

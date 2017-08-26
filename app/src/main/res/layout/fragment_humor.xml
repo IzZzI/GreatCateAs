@@ -5,6 +5,7 @@
               >
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh_humor"
+        android:layout_below="@+id/ll_humor_title_controller"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
@@ -28,6 +29,7 @@
             android:layout_height="@dimen/dimen_20dp" />
 
         <RelativeLayout
+            android:id="@+id/rl_humor_title_controller"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_104dp" >
 
@@ -37,13 +39,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/text_humor"
-                android:textColor="@color/white"
+                android:textColor="@color/black_bf"
                 android:textSize="@dimen/txtsize_38sp" />
 
             <TextView
                 android:id="@+id/btn_humor_upload"
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/black_bf"
                 android:textSize="@dimen/txtsize_30sp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

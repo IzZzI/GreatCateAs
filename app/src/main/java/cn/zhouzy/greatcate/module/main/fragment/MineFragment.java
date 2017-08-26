@@ -133,7 +133,7 @@ public class MineFragment extends BaseFragment
 	}
 
 	@OnClick(
-			{R.id.rl_mine_collect, R.id.rl_mine_setting, R.id.rl_mine_contact, R.id.rl_mine_info,
+			{R.id.rl_mine_collect, R.id.rl_mine_setting,  R.id.rl_mine_info,
 					R.id.ll_mine_head_portrait_controller})
 	void OnClick(View v)
 	{
@@ -147,11 +147,6 @@ public class MineFragment extends BaseFragment
 				break;
 			case R.id.rl_mine_info:
 				toUserInfo();
-				break;
-			case R.id.rl_mine_contact:
-				ToastUtil.showToast(getActivity(), getResources().getString(R.string.contact_us));
-				Intent in = new Intent(getActivity(), UpLoadActivity.class);
-				startActivity(in);
 				break;
 			case R.id.ll_mine_head_portrait_controller:
 				toUserInfo();

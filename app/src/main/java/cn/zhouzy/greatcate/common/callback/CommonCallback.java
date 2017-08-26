@@ -1,7 +1,7 @@
 package cn.zhouzy.greatcate.common.callback;
 
 /**
- * Created by gdxw on 2017/3/9.
+ * Created by zhouzy on 2017/3/9.
  */
 
 public interface CommonCallback
