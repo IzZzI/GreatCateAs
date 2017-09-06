@@ -17,8 +17,6 @@
             android:id="@+id/civ_item_humor_layout_head_portrait"
             android:layout_width="@dimen/dimen_100dp"
             android:layout_height="@dimen/dimen_100dp"
-
-            android:src="@mipmap/head_portrait"
             />
 
         <TextView

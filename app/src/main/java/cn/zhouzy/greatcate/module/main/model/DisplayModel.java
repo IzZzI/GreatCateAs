@@ -41,10 +41,12 @@ public class DisplayModel implements DisplayContract.IDisplayModel
 					{
 						if (root != null && root.getResult() != null)
 						{
-
 							callback.onSuccess(root.getResult().getData());
+						}else{
 
+							callback.onFail(root.getReason());
 						}
+
 					}
 				});
 	}

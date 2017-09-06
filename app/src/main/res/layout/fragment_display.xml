@@ -48,6 +48,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dimen_30dp"
+                android:visibility="visible"
                 android:background="@drawable/btn_search_selector" />
         </RelativeLayout>
     </LinearLayout>

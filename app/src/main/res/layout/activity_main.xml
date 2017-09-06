@@ -36,18 +36,18 @@
                 android:layout_weight="1"
                 android:checked="true"
                 android:drawableTop="@drawable/rb_cook_selector"
-                android:visibility="gone"
                 android:text="@string/text_display"/>
 
             <RadioButton
                 android:id="@+id/rb_main_humor"
                 style="@style/rb_checked_style"
                 android:layout_width="0dp"
-                android:checked="true"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:checked="false"
                 android:drawableTop="@drawable/rb_humor_normal"
-                android:text="@string/text_humor"/>
+                android:text="@string/text_humor"
+                android:visibility="gone"/>
 
             <RadioButton
                 android:id="@+id/rb_main_mine"

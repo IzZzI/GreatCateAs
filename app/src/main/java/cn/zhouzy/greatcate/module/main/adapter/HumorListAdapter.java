@@ -1,6 +1,7 @@
 package cn.zhouzy.greatcate.module.main.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +32,7 @@ import cn.zhouzy.greatcate.entity.Post;
 
 public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.HumorViewHolder>
 {
+	private  DisplayImageOptions options;
 	private List<Post> mDataList;
 	private Context mContext;
 
@@ -40,8 +45,12 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 		}
 		this.mDataList = mDataList;
 		this.mContext = mContext;
+		this.options = new DisplayImageOptions.Builder()
+				.cacheInMemory(true)
+				.cacheOnDisk(true)
+				.bitmapConfig(Bitmap.Config.RGB_565)
+				.build();
 	}
-
 
 
 	@Override
@@ -62,7 +71,7 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 			String mAuthor = mPost.getAuthor();
 			final String mContent = mPost.getContent();
 			List<String> mImgUrl = mPost.getImgUrls();
-			String mHeadPortraitUrl = mPost.getAuthorHeadPortrait();
+			final String mHeadPortraitUrl = mPost.getAuthorHeadPortrait();
 			if (!StrUtil.strIsNullOrEmpty(mTime))
 			{
 				holder.mTimeTextView.setText(mTime);
@@ -77,8 +86,35 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 			}
 			if (!StrUtil.strIsNullOrEmpty(mHeadPortraitUrl))
 			{
-				ImageLoader.getInstance().displayImage(mHeadPortraitUrl, holder.mHeadPortraitCircleImageView);
-			}else
+				ImageLoader.getInstance().displayImage(mHeadPortraitUrl, holder.mHeadPortraitCircleImageView, options,new ImageLoadingListener()
+				{
+					@Override
+					public void onLoadingStarted(String imageUri, View view)
+					{
+						holder.mHeadPortraitCircleImageView.setTag(mHeadPortraitUrl);
+					}
+
+					@Override
+					public void onLoadingFailed(String imageUri, View view, FailReason failReason)
+					{
+
+					}
+
+					@Override
+					public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage)
+					{
+						if (mHeadPortraitUrl.equals(holder.mHeadPortraitCircleImageView.getTag())){
+							 holder.mHeadPortraitCircleImageView.setImageBitmap(loadedImage);
+						}
+					}
+
+					@Override
+					public void onLoadingCancelled(String imageUri, View view)
+					{
+
+					}
+				});
+			} else
 			{
 				holder.mHeadPortraitCircleImageView.setImageResource(R.mipmap.head_portrait);
 			}
@@ -101,12 +137,12 @@ public class HumorListAdapter extends RecyclerView.Adapter<HumorListAdapter.Humo
 						holder.mLikeTextView.setText(Integer.valueOf(holder.mLikeTextView.getText().toString()) + 1 + "");
 						sharedPreferencesUtil.putInt(position + "", Integer.valueOf(holder.mLikeTextView.getText().toString()));
 
-					}else
+					} else
 					{
 						holder.isLike = false;
 						holder.mLikeImageView.setImageResource(R.drawable.like_nor);
 						SharedPreferencesUtil sharedPreferencesUtil = new SharedPreferencesUtil(mContext);
-						holder.mLikeTextView.setText(Integer.valueOf(holder.mLikeTextView.getText().toString()) -1 + "");
+						holder.mLikeTextView.setText(Integer.valueOf(holder.mLikeTextView.getText().toString()) - 1 + "");
 						sharedPreferencesUtil.putInt(position + "", Integer.valueOf(holder.mLikeTextView.getText().toString()));
 					}
 				}

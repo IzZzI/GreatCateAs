@@ -1,12 +1,14 @@
 package cn.zhouzy.greatcate.module.main.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yzs.imageshowpickerview.ImageShowPickerView;
 
@@ -24,6 +26,7 @@ public class HumorPicAdapter extends BaseAdapter
 {
 	private List<String> mDataList;
 	private Context mContext;
+	DisplayImageOptions options;
 
 	public HumorPicAdapter(List<String> mDataList, Context mContext)
 	{
@@ -33,6 +36,11 @@ public class HumorPicAdapter extends BaseAdapter
 		}
 		this.mDataList = mDataList;
 		this.mContext = mContext;
+		this.options = new DisplayImageOptions.Builder()
+				.cacheInMemory(true)
+				.cacheOnDisk(true)
+				.bitmapConfig(Bitmap.Config.RGB_565)
+				.build();
 
 	}
 
@@ -63,7 +71,7 @@ public class HumorPicAdapter extends BaseAdapter
 		}
 		ImageView mImageView = BaseViewHolder.get(convertView,R.id.iv_item_humor_pic);
 		String mUrl  = mDataList.get(position);
-		ImageLoader.getInstance().displayImage(mUrl,mImageView);
+		ImageLoader.getInstance().displayImage(mUrl,mImageView,options);
 		return convertView;
 	}
 }

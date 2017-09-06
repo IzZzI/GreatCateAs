@@ -263,5 +263,6 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 	public void onGetDataFailed(String error)
 	{
 		ToastUtil.showToast(getActivity(), error);
+		DialogUtil.removeDialog(getActivity());
 	}
 }
