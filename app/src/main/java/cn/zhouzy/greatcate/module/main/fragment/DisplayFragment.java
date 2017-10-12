@@ -3,8 +3,11 @@ package cn.zhouzy.greatcate.module.main.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +29,7 @@ import cn.zhouzy.greatcate.common.constant.Constant;
 import cn.zhouzy.greatcate.common.utils.DialogUtil;
 import cn.zhouzy.greatcate.common.utils.ToastUtil;
 import cn.zhouzy.greatcate.common.view.ExpandGridViewToScrollView;
+import cn.zhouzy.greatcate.common.view.pullview.CommPullToRefreshView;
 import cn.zhouzy.greatcate.contract.DisplayContract;
 import cn.zhouzy.greatcate.entity.Data;
 import cn.zhouzy.greatcate.module.main.activity.CateDetailsActivity;
@@ -34,6 +38,9 @@ import cn.zhouzy.greatcate.module.main.adapter.CategoryGridViewAdapter;
 import cn.zhouzy.greatcate.module.main.adapter.DisplayCateListViewAdapter;
 import cn.zhouzy.greatcate.module.main.presenter.DisplayPresenter;
 
+/**
+ * 展示菜谱Fragment
+ */
 public class DisplayFragment extends BaseFragment implements DisplayContract.IDisplayView
 {
 
@@ -43,6 +50,8 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 	LinearLayout mTitleControllerLinearLayout;
 	@Bind(R.id.tv_display_title)
 	TextView mTitleTextView;
+	@Bind(R.id.refreshview_display_refresh)
+	SwipeRefreshLayout mCommPullToRefreshView;
 	private DisplayCateListViewAdapter mCateAdapter;
 	private List<Data> mCateList;
 	private DisplayPresenter mDisplayPresenter;
@@ -57,6 +66,14 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 	private boolean isLoadData;
 	private View mHeadView;
 	private CategoryGridViewAdapter mCategoryGridViewAdapter;
+	/**
+	 * 是否滑动到Listview底部
+	 */
+	private boolean isBottom;
+	/**
+	 * 是否正在加载数据
+	 */
+	private boolean isLoading;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -142,6 +159,7 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 		// 取得头部背景图片
 		mHeaderBgImageView = (ImageView) mHeadView.findViewById(R.id.iv_include_display_head_view_bgimageview);
 		mCateListView.addHeaderView(mHeadView);
+
 	}
 
 	private void initListener()
@@ -169,12 +187,25 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState)
 			{
-
+				if (isBottom && !isLoading && scrollState == OnScrollListener.SCROLL_STATE_IDLE)
+				{
+					DialogUtil.showLoadDialog(getActivity(), R.mipmap.xsearch_loading, "正在加载");
+					mPn ++;
+					isLoading = true;
+					mDisplayPresenter.getMoreCateList(mCid , mPn + "", mRn + "");
+				}
 			}
 
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
 			{
+				if ((firstVisibleItem + visibleItemCount) == totalItemCount)
+				{
+					isBottom = true;
+				} else
+				{
+					isBottom = false;
+				}
 				changeTitleStatus();
 			}
 		});
@@ -196,7 +227,16 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 				DialogUtil.showLoadDialog(getActivity(), R.mipmap.xsearch_loading,
 						getResources().getString(R.string.loading));
 				mDisplayPresenter.getCateList(mCid, mPn + "", mRn + "");
+			}
+		});
 
+		mCommPullToRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+		{
+			@Override
+			public void onRefresh()
+			{
+				mPn = 1;
+				mDisplayPresenter.getCateList(mCid, mPn + "", mRn + "");
 			}
 		});
 
@@ -256,6 +296,7 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 		mCateList.clear();
 		mCateList.addAll(cateList);
 		mCateAdapter.notifyDataSetChanged();
+		mCommPullToRefreshView.setRefreshing(false);
 		DialogUtil.removeDialog(getActivity());
 	}
 
@@ -264,5 +305,23 @@ public class DisplayFragment extends BaseFragment implements DisplayContract.IDi
 	{
 		ToastUtil.showToast(getActivity(), error);
 		DialogUtil.removeDialog(getActivity());
+		mCommPullToRefreshView.setRefreshing(false);
+	}
+
+	@Override
+	public void onGetMoreSuccess(List<Data> cateList)
+	{
+		mCateList.addAll(cateList);
+		mCateAdapter.notifyDataSetChanged();
+		DialogUtil.removeDialog(getActivity());
+		isLoading = false;
+	}
+
+	@Override
+	public void onGetMoreFail(String errorMsg)
+	{
+		ToastUtil.showToast(getActivity(), errorMsg);
+		DialogUtil.removeDialog(getActivity());
+		isLoading = false;
 	}
 }

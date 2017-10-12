@@ -31,7 +31,7 @@ public class SearchModel implements SearchContract.ISearchModel
 					        callback.onSuccess(data);
 				        } else
 				        {
-					        callback.onFail("数据异常");
+					        callback.onFail(root.getReason());
 				        }
 			        }
 

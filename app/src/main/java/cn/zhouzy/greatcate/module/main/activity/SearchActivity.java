@@ -2,6 +2,7 @@ package cn.zhouzy.greatcate.module.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -121,9 +122,19 @@ public class SearchActivity extends BaseActivity implements ISearchView
 	}
 
 	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		if(keyCode == KeyEvent.KEYCODE_BACK){
+			finish();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
 	public void setSearchResultList(List<Data> mDataList)
 	{
-		DialogUtil.removeDialog(this);
+
 		if (mDataList != null && mDataList.size() > 0)
 		{
 			mQuickSearchLinearLayout.setVisibility(View.GONE);
@@ -134,6 +145,7 @@ public class SearchActivity extends BaseActivity implements ISearchView
 		{
 			mQuickSearchLinearLayout.setVisibility(View.VISIBLE);
 		}
+		DialogUtil.removeDialog(this);
 	}
 
 	@Override

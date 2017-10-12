@@ -50,4 +50,38 @@ public class DisplayModel implements DisplayContract.IDisplayModel
 					}
 				});
 	}
+
+	@Override
+	public void getMoreCateList(int cid, String pn, String rn,final CommonCallback callback)
+	{
+		RetrofitMannager.getInstance().create(DisplayApi.class).getCateList(cid, pn, rn,
+				Constant.KEY).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Subscriber<Root>()
+				{
+					@Override
+					public void onCompleted()
+					{
+
+					}
+
+					@Override
+					public void onError(Throwable e)
+					{
+						callback.onFail(e.getMessage());
+					}
+
+					@Override
+					public void onNext(Root root)
+					{
+						if (root != null && root.getResult() != null)
+						{
+							callback.onSuccess(root.getResult().getData());
+						}else{
+
+							callback.onFail(root.getReason());
+						}
+
+					}
+				});
+	}
 }

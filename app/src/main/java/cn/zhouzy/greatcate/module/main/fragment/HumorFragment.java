@@ -30,6 +30,9 @@ import cn.zhouzy.greatcate.module.main.activity.UpLoadActivity;
 import cn.zhouzy.greatcate.module.main.adapter.HumorListAdapter;
 import cn.zhouzy.greatcate.module.main.presenter.HumorPresenter;
 
+/**
+ * 心情界面Fragment
+ */
 public class HumorFragment extends BaseFragment implements HumorContract.IHumorView
 {
 

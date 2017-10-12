@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_bg" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_bg">
 
-    <ListView
-        android:id="@+id/lv_display_recipe"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshview_display_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"
-        android:divider="@color/gray_bg"
-        android:dividerHeight="@dimen/dimen_15dp"
-        android:headerDividersEnabled="false"
-        android:listSelector="@android:color/transparent"
-        android:scrollbars="@null" >
-    </ListView>
+        android:layout_height="match_parent">
 
+        <ListView
+            android:id="@+id/lv_display_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:divider="@color/gray_bg"
+            android:dividerHeight="@dimen/dimen_15dp"
+            android:headerDividersEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none">
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
     <LinearLayout
         android:id="@+id/ll_display_title_controller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_2c"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_20dp" />
+            android:layout_height="@dimen/dimen_20dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_104dp" >
+            android:layout_height="@dimen/dimen_104dp">
 
             <TextView
                 android:id="@+id/tv_display_title"
@@ -39,7 +44,7 @@
                 android:layout_centerInParent="true"
                 android:text="@string/home_cooking"
                 android:textColor="@color/white"
-                android:textSize="@dimen/txtsize_38sp" />
+                android:textSize="@dimen/txtsize_38sp"/>
 
             <Button
                 android:id="@+id/btn_display_search"
@@ -48,8 +53,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dimen_30dp"
-                android:visibility="visible"
-                android:background="@drawable/btn_search_selector" />
+                android:background="@drawable/btn_search_selector"
+                android:visibility="visible"/>
         </RelativeLayout>
     </LinearLayout>
 

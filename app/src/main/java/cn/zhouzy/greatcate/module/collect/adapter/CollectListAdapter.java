@@ -1,5 +1,6 @@
 package cn.zhouzy.greatcate.module.collect.adapter;
 
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuAdapter;
 
 import java.util.List;
 
 import cn.zhouzy.greatcate.R;
+import cn.zhouzy.greatcate.base.BaseApplication;
 import cn.zhouzy.greatcate.entity.CollectEntity;
 
 /**
@@ -25,10 +30,12 @@ public class CollectListAdapter extends SwipeMenuAdapter<CollectListAdapter.Defa
 
 	private List<CollectEntity> mDataList;
 	private OnItemClickListener mOnItemClickListener;
+	private DisplayImageOptions options;
 
 	public CollectListAdapter(List mDataList)
 	{
 		this.mDataList = mDataList;
+		this.options = BaseApplication.getOptions();
 	}
 
 
@@ -59,13 +66,44 @@ public class CollectListAdapter extends SwipeMenuAdapter<CollectListAdapter.Defa
 		CollectEntity mCollectEntity = mDataList.get(position);
 		if (mCollectEntity != null)
 		{
-			String mAblumsUrl = mCollectEntity.getAlbums();
+			final String mAblumsUrl = mCollectEntity.getAlbums();
 			String mTitle = mCollectEntity.getTitle();
 			String mIntro = mCollectEntity.getIntro();
 			String mTime = mCollectEntity.getCollectTime();
+
+
 			if (mAblumsUrl != null)
 			{
-				ImageLoader.getInstance().displayImage(mAblumsUrl, holder.mAblumsImageView);
+				holder.mAblumsImageView.setTag(mAblumsUrl);
+
+				ImageLoader.getInstance().displayImage(mAblumsUrl, holder.mAblumsImageView, options,new ImageLoadingListener()
+				{
+					@Override
+					public void onLoadingStarted(String imageUri, View view)
+					{
+
+					}
+
+					@Override
+					public void onLoadingFailed(String imageUri, View view, FailReason failReason)
+					{
+
+					}
+
+					@Override
+					public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage)
+					{
+						if (mAblumsUrl .equals(view.getTag())){
+							((ImageView)view).setImageBitmap(loadedImage);
+						}
+					}
+
+					@Override
+					public void onLoadingCancelled(String imageUri, View view)
+					{
+
+					}
+				});
 			}
 			if (mTitle != null)
 			{

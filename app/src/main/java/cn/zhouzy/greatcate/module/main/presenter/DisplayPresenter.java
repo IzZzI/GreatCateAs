@@ -43,4 +43,25 @@ public class DisplayPresenter implements DisplayContract.IDisplayPresenter
 		};
 		mDisplayModel.getCateList(cid, pn, rn, callback);
 	}
+
+	@Override
+	public void getMoreCateList(int cid, String pn, String rn)
+	{
+		CommonCallback callback = new CommonCallback()
+		{
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onSuccess(Object success)
+			{
+				mDisplayView.onGetMoreSuccess((List<Data>) success);
+			}
+
+			@Override
+			public void onFail(Object fail)
+			{
+				mDisplayView.onGetMoreFail((String) fail);
+			}
+		};
+		mDisplayModel.getMoreCateList(cid, pn, rn, callback);
+	}
 }
